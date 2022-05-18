@@ -1,0 +1,87 @@
+.likeBtn,
+.addColBtn,
+.downBtn,
+.shareBtn,
+.infoBtn,
+.moreBtn {
+  display: flex;
+  align-items: center;
+  margin: 4px;
+  background-color: #fff;
+  border: 1px solid #d1d1d1;
+  fill: #767676;
+  box-shadow: 0 1px 1px #0000000a;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.likeBtn,
+.addColBtn,
+.downBtn,
+.shareBtn,
+.infoBtn,
+.moreBtn {
+  padding: 0 11px;
+}
+
+.likeBtn svg {
+  width: 15px;
+  height: 30px;
+}
+
+.addColBtn svg {
+  width: 16px;
+  height: 20px;
+}
+
+.downBtn svg {
+  width: 16px;
+  height: 30px;
+}
+
+.shareBtn svg {
+  height: 15px;
+  width: 15px;
+}
+
+.infoBtn svg {
+  height: 14px;
+  width: 14px;
+}
+
+.moreBtn svg {
+  height: 18px;
+  width: 18px;
+}
+.shareBtn span,
+.infoBtn span {
+  margin-left: 8px;
+  color: #767676;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.likeBtn:hover,
+.addColBtn:hover,
+.downBtn:hover,
+.shareBtn:hover,
+.shareBtn:hover span,
+.infoBtn:hover,
+.infoBtn:hover span,
+.moreBtn:hover {
+  fill: #111;
+  color: #111;
+  border-color: #767676;
+}
+
+.liked {
+  background-color: #f15151;
+  fill: #fff;
+  border: none;
+}
+
+.liked:hover {
+  background-color: #e04c4c;
+  fill: #fff;
+}

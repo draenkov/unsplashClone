@@ -1,0 +1,51 @@
+.portal {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 30;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay {
+  padding: 16px;
+  background-color: #0009;
+  position: fixed;
+
+  bottom: 0;
+  left: 0;
+
+  right: 0;
+  top: 0;
+  cursor: zoom-out;
+  overflow-y: auto;
+}
+
+.overlay__close {
+  position: fixed;
+  fill: #fff;
+  left: 0;
+  margin-left: 8px;
+  margin-top: 8px;
+  top: 0;
+  background-color: transparent;
+  border: none;
+  opacity: 0.8;
+}
+
+.overlay__close:hover {
+  opacity: 1;
+}
+
+.overlay__close svg {
+  width: 24px;
+  height: 24px;
+}
+
+.scrollHidden {
+  height: 100vh;
+  overflow-y: hidden;
+}
