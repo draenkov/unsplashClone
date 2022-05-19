@@ -13,7 +13,9 @@ class SplashProvider {
     )
       .then((response) => response.json())
 
-      .then((response) => UnsplashConverter.toPhotos(response));
+      .then((response) => UnsplashConverter.toPhotos(response))
+      .then((photos) => UnsplashConverter.toMap(photos));
+
     return startPhotos;
   }
 
@@ -23,7 +25,8 @@ class SplashProvider {
     )
       .then((response) => response.json())
 
-      .then((response) => UnsplashConverter.toPhotos(response));
+      .then((response) => UnsplashConverter.toPhotos(response))
+      .then((photos) => UnsplashConverter.toMapBase(photos));
     return morePhotos;
   }
 

@@ -5,8 +5,8 @@ import convertViews from '../../utils/convertViews';
 class Converter {
   toPhotos(photoResponse) {
     const photoInfo = photoResponse.map((photo) => this.toCorrectPhoto(photo));
-    const map = this.toMap(photoInfo);
-    return map;
+
+    return photoInfo;
   }
 
   toCorrectPhoto({
@@ -54,6 +54,16 @@ class Converter {
     }, []);
 
     return new Map(mapBase);
+  }
+
+  toMapBase(photoInfo) {
+    const mapBase = photoInfo.reduce((acc, photo) => {
+      const arr = [];
+      arr.push(photo.id, photo);
+      const result = [...acc, arr];
+      return result;
+    }, []);
+    return mapBase;
   }
 }
 

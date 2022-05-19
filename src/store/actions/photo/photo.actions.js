@@ -6,11 +6,17 @@ import {
   SET_POTD,
 } from './photo.action-types';
 
-export const setPhotos = (photos) => ({ type: SET_PHOTOS, payload: photos });
-export const setPOTD = (photo) => ({ type: SET_POTD, payload: photo });
-export const setActivePhoto = (photo) => ({
-  type: SET_ACTIVE_PHOTO,
-  payload: photo,
+export const setPhotos = (photosMap) => ({
+  type: SET_PHOTOS,
+  payload: photosMap,
 });
-export const addPhotos = (photos) => ({ type: ADD_PHOTOS, payload: photos });
+export const setPOTD = (photo) => ({ type: SET_POTD, payload: photo });
+export const setActivePhoto = (photoId) => ({
+  type: SET_ACTIVE_PHOTO,
+  payload: photoId,
+});
+export const addPhotos = (photos) => ({
+  type: ADD_PHOTOS,
+  payload: photos,
+});
 export const likePhoto = (photoId) => ({ type: LIKE_PHOTO, payload: photoId });

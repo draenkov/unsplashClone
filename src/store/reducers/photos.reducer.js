@@ -24,8 +24,14 @@ export const photosReducer = (state = initialState, action = {}) => {
       return { ...state, potd: payload };
     case SET_ACTIVE_PHOTO:
       return { ...state, activePhoto: payload };
-    case ADD_PHOTOS:
-      return { ...state, photos: [...state.photos, ...payload] };
+    case ADD_PHOTOS: {
+      payload.map((item) => {
+        state.photos.set(item[0], item[1]);
+        return item;
+      });
+
+      return state;
+    }
     case LIKE_PHOTO: {
       const changedPhotos = state.photos.map((photo) => {
         if (photo.id === payload) {
