@@ -8,7 +8,6 @@ import {
 } from '../actions/photo/photo.action-types';
 
 const initialState = {
-  // new Map(photo.id, photo),
   photos: [],
   potd: [],
   activePhoto: {},
@@ -24,7 +23,6 @@ export const photosReducer = (state = initialState, action = {}) => {
     case SET_POTD:
       return { ...state, potd: payload };
     case SET_ACTIVE_PHOTO:
-      // хранить айдишник
       return { ...state, activePhoto: payload };
     case ADD_PHOTOS:
       return { ...state, photos: [...state.photos, ...payload] };

@@ -5,7 +5,7 @@ import '../../../style/Gallery.css';
 import { splitIntpSides } from '../../../utils/splitIntoSides';
 
 const Gallery = () => {
-  const photosInfo = useSelector(photosSelector);
+  const photosInfo = Array.from(useSelector(photosSelector).values());
 
   const photosBySides = splitIntpSides(photosInfo);
 

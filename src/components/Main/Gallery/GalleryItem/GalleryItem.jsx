@@ -13,7 +13,7 @@ const GalleryItem = ({ photo }) => {
       className="galleryItem"
       onClick={() => {
         dispatch(open());
-        dispatch(setActivePhoto(photo));
+        dispatch(setActivePhoto(photo.id));
       }}
       onKeyDown={() => {}}
       role="button"
@@ -41,6 +41,7 @@ export default GalleryItem;
 
 GalleryItem.propTypes = {
   photo: PropTypes.shape({
+    id: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
     authorImg: PropTypes.string.isRequired,

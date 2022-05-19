@@ -1,7 +1,7 @@
-export const splitIntpSides = (photosInfo) => {
+export const splitIntpSides = (photos) => {
   const photosBySides = { left: [], center: [], right: [] };
 
-  photosInfo.map((item) => {
+  photos.map((item) => {
     const { left, center, right } = photosBySides;
     if (left.length === center.length && left.length === right.length) {
       left.push(item);

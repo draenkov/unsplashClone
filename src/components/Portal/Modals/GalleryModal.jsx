@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { UnsplashService } from '../../../api/splash/provider';
 import { activePhotoSelector } from '../../../store/selectors/activePhoto.selector';
+import { photosSelector } from '../../../store/selectors/photos.selector';
 
 import '../../../style/GalleryModal.css';
 import convertDates from '../../../utils/convertDates';
@@ -15,7 +16,9 @@ const GalleryModal = () => {
   const [isZoomed, setIsZoomed] = useState(false);
 
   const [stats, setStats] = useState('');
-  const photo = useSelector(activePhotoSelector);
+  const photoId = useSelector(activePhotoSelector);
+  const photo = useSelector(photosSelector).get(photoId);
+
   useEffect(() => {
     UnsplashService.getStatistics(photo.id).then((result) => setStats(result));
   }, []);

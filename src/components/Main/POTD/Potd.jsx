@@ -5,7 +5,7 @@ import '../../../style/Potd.css';
 import Form from '../../Header/Form/Form';
 
 const Potd = () => {
-  const photoOfTheDay = useSelector(potdSelector);
+  const photoOfTheDay = Array.from(useSelector(potdSelector).values());
 
   return (
     <section className="potd">
