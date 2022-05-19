@@ -1,4 +1,3 @@
-import { Photo } from '../../entities/photo';
 import {
   ADD_PHOTOS,
   LIKE_PHOTO,
@@ -10,7 +9,7 @@ import {
 const initialState = {
   photos: [],
   potd: [],
-  activePhoto: {},
+  activePhoto: '',
 };
 
 export const photosReducer = (state = initialState, action = {}) => {
@@ -33,24 +32,16 @@ export const photosReducer = (state = initialState, action = {}) => {
       return state;
     }
     case LIKE_PHOTO: {
-      const changedPhotos = state.photos.map((photo) => {
-        if (photo.id === payload) {
-          photo.likedByUser = !photo.likedByUser;
-        }
-        return photo;
-      });
+      const map = state.photos;
+      const likedPhoto = map.get(payload);
 
-      const changedActivePhoto = state.activePhoto.url
-        ? new Photo({
-            ...state.activePhoto,
-            likedByUser: !state.activePhoto.likedByUser,
-          })
-        : state.activePhoto;
-      return {
-        ...state,
-        photos: changedPhotos,
-        activePhoto: changedActivePhoto,
-      };
+      if (likedPhoto) {
+        likedPhoto.likedByUser = !likedPhoto.likedByUser;
+      }
+      const array = Array.from(map);
+      const newMap = new Map(array);
+
+      return { ...state, photos: newMap };
     }
     default:
       return state;
