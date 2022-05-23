@@ -1,7 +1,9 @@
+import PropTypes from 'prop-types';
+
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+
 import { UnsplashService } from '../../../api/splash/provider';
-import { activePhotoSelector } from '../../../store/selectors/activePhoto.selector';
 import { photosSelector } from '../../../store/selectors/photos.selector';
 
 import '../../../style/GalleryModal.css';
@@ -12,13 +14,11 @@ import LikeBtn from '../../Buttons/LikeBtn/LikeBtn';
 import MoreBtn from '../../Buttons/MoreBtn/MoreBtn';
 import ShareBtn from '../../Buttons/ShareBtn/ShareBtn';
 
-const GalleryModal = () => {
+const GalleryModal = ({ photoId }) => {
   const [isZoomed, setIsZoomed] = useState(false);
 
   const [stats, setStats] = useState('');
-  const photoId = useSelector(activePhotoSelector);
   const photo = useSelector(photosSelector).get(photoId);
-
   useEffect(() => {
     UnsplashService.getStatistics(photo.id).then((result) => setStats(result));
   }, []);
@@ -130,3 +130,11 @@ const GalleryModal = () => {
 };
 
 export default GalleryModal;
+
+GalleryModal.propTypes = {
+  photoId: PropTypes.string,
+};
+
+GalleryModal.defaultProps = {
+  photoId: '',
+};

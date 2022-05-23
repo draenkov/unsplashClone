@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
+// import { UnsplashService } from '../../../api/splash/provider';
 import { likePhoto } from '../../../store/actions/photo/photo.actions';
 
 const LikeBtn = ({ photo }) => {
@@ -11,6 +12,10 @@ const LikeBtn = ({ photo }) => {
       onClick={(e) => {
         e.stopPropagation();
         dispatch(likePhoto(photo.id));
+        // TODO: Like API
+        // return photo.likedByUser
+        //   ? UnsplashService.likePhoto(photo.id)
+        //   : UnsplashService.unlikePhoto(photo.id);
       }}
       type="button"
     >

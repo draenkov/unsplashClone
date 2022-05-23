@@ -79,6 +79,7 @@
   background-color: #f15151;
   fill: #fff;
   border: none;
+  padding: 1px 12px;
 }
 
 .liked:hover {

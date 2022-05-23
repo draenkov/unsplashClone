@@ -5,6 +5,8 @@ class SplashProvider {
   constructor({ baseUrl, accessKey }) {
     this.baseUrl = baseUrl;
     this.accessKey = accessKey;
+    this.accessToken = null;
+    this.refreshToken = null;
   }
 
   getStartPhotos() {
@@ -14,6 +16,7 @@ class SplashProvider {
       .then((response) => response.json())
 
       .then((response) => UnsplashConverter.toPhotos(response))
+
       .then((photos) => UnsplashConverter.toMap(photos));
 
     return startPhotos;
@@ -50,6 +53,28 @@ class SplashProvider {
     return statistics;
   }
 
+  likePhoto(id) {
+    const likedPhoto = fetch(
+      `${this.baseUrl}/photos/${id}/like?client_id=${this.accessKey}`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${this.accessToken}`,
+        },
+      }
+    )
+      .then((response) => response.json())
+      .then((response) => UnsplashConverter.toPhotoId(response));
+
+    return likedPhoto;
+  }
+
+  unlikePhoto(id) {
+    fetch(`${this.baseUrl}/photos/${id}/like?client_id=${this.accessKey}`, {
+      method: 'DELETE',
+    });
+  }
+
   login() {
     return window.location.replace(
       `https://unsplash.com/oauth/authorize?client_id=${process.env.REACT_APP_ACCESS_KEY}&redirect_uri=http://localhost:3000/login&response_type=code&scope=public+read_user`
@@ -62,10 +87,15 @@ class SplashProvider {
       {
         method: 'POST',
         // headers: {
-        //   Authorization: `Bearer ${access_token}`,
+        //   Authorization: `Bearer ${this.accessToken}`,
         // },
       }
-    ).then((response) => response.json());
+    )
+      .then((response) => response.json())
+      .then(({ access_token, refresh_token }) => {
+        this.accessToken = access_token;
+        this.refreshToken = refresh_token;
+      });
   }
 }
 

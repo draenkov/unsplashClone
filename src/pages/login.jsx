@@ -13,6 +13,7 @@ const Login = () => {
     if (!code) {
       return;
     }
+    // Сохранить токен в стор
     UnsplashService.getAccessToken(code);
   }, []);
   return (

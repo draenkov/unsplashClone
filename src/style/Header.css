@@ -97,6 +97,7 @@
   font-size: 14px;
   font-weight: 500;
   color: #767676;
+  text-decoration: none;
 }
 
 .fastMenu__link:hover {

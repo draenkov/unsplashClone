@@ -65,6 +65,10 @@ class Converter {
     }, []);
     return mapBase;
   }
+
+  toPhotoId(photo) {
+    return photo.id;
+  }
 }
 
 export const UnsplashConverter = new Converter();
