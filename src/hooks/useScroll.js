@@ -19,7 +19,7 @@ const useScroll = () => {
     const visibleHeight = window.innerHeight;
 
     const scrollPoint = totalHeight - (topPosition + visibleHeight);
-    if (scrollPoint < 300 && scrollPoint > 250) {
+    if (scrollPoint < 300 && scrollPoint > 230) {
       setShouldLoad(() => true);
     }
   };
