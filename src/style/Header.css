@@ -149,3 +149,44 @@
   color: black;
   cursor: pointer;
 }
+
+/* input trends and tips */
+.searchTrends {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  box-shadow: 0 8px 16px #00000029;
+  transform: translateY(3px);
+  padding: 16px;
+}
+
+.searchTrend:not(:last-child) {
+  padding-bottom: 25px;
+}
+
+.searchTrend__title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #111;
+}
+
+.searchTrend__btns button {
+  background-color: #fff;
+  border: 1px solid #d1d1d1;
+  color: #767676;
+  font-size: 14px;
+  height: 39px;
+  line-height: 30px;
+  padding: 0 15px;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.searchTrend__btns button:not(:last-child) {
+  margin-right: 10px;
+}

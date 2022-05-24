@@ -49,6 +49,10 @@
   width: 100%;
 }
 
+.introduce .input {
+  padding: 27px 0;
+}
+
 .introduce .search__input {
   border-radius: 4px;
   height: 54px;

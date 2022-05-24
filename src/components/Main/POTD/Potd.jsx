@@ -15,7 +15,7 @@ const Potd = () => {
       <div className="introduce">
         <h1>Unsplash</h1>
         <p>
-          The internet&apos;s source of
+          The internet&apos;s source of&nbsp;
           <a href="/#">freely-usable images.</a>
         </p>
         <p>Powered by creators everywhere</p>
