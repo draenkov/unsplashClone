@@ -5,6 +5,7 @@ const SearchTrends = ({ isInputActive }) => {
     {
       title: 'Trending Searches',
       btns: ['profile', 'featured', 'office', 'summer', 'mountains'],
+      icon: '',
     },
     {
       title: 'Trending Topics',
