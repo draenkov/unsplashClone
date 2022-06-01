@@ -69,6 +69,10 @@ class Converter {
   toPhotoId(photo) {
     return photo.id;
   }
+
+  toUserName(userInfo) {
+    return userInfo.username;
+  }
 }
 
 export const UnsplashConverter = new Converter();

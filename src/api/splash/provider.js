@@ -82,6 +82,9 @@ class SplashProvider {
   }
 
   getAccessToken(code) {
+    // if (this.accessToken) {
+    //   return this.accessToken;
+    // }
     return fetch(
       `https://unsplash.com/oauth/token?grant_type=authorization_code&code=${code}&redirect_uri=http://localhost:3000/login&client_id=${process.env.REACT_APP_ACCESS_KEY}&client_secret=${process.env.REACT_APP_SECRET_KEY}`,
       {
@@ -96,6 +99,23 @@ class SplashProvider {
         this.accessToken = access_token;
         this.refreshToken = refresh_token;
       });
+  }
+
+  getUserName() {
+    const userName = fetch(
+      `${this.baseUrl}/me?client_id=${this.accessKey}&scope=read_user`,
+      {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${this.accessToken}`,
+        },
+      }
+    )
+      .then((response) => response.json())
+      .then(console.log)
+      .then((response) => UnsplashConverter.toUserName(response));
+
+    return userName;
   }
 }
 

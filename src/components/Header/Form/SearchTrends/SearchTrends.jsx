@@ -1,36 +1,63 @@
 import PropTypes from 'prop-types';
+import { svgConverter } from '../../../../utils/svgConverter';
+import TrendUp from '../icons/trend-up.svg';
 
 const SearchTrends = ({ isInputActive }) => {
+  const iconComponents = {
+    TrendUp: <TrendUp />,
+  };
+
   const searchTrends = [
     {
       title: 'Trending Searches',
-      btns: ['profile', 'featured', 'office', 'summer', 'mountains'],
-      icon: '',
+
+      btns: [
+        { name: 'profile', icon: 'TrendUp' },
+        { name: 'featured', icon: 'TrendUp' },
+        { name: 'office', icon: 'TrendUp' },
+        { name: 'summer', icon: 'TrendUp' },
+        { name: 'mountains', icon: 'TrendUp' },
+      ],
     },
     {
       title: 'Trending Topics',
+
       btns: [
-        'Business & Work',
-        'Digital Nomad',
-        'Experimental',
-        'Athletics',
-        'Wallpapers',
+        { name: 'Business & Work', icon: '' },
+        { name: 'Digital Nomad', icon: '' },
+        { name: 'Experimental', icon: '' },
+        { name: 'Athletics', icon: '' },
+        { name: 'Wallpapers', icon: '' },
       ],
     },
     {
       title: 'Trending Collections',
-      btns: ['church', 'Medium frames in interior', 'Yoga', 'HEALTH', 'Spring'],
+
+      btns: [
+        { name: 'church', icon: '' },
+        { name: 'Medium frames in interior', icon: '' },
+        { name: 'Yoga', icon: '' },
+        { name: 'HEALTH', icon: '' },
+        { name: 'Spring', icon: '' },
+      ],
     },
   ];
 
   return (
     <div className={isInputActive ? 'searchTrends' : 'hidden'}>
       {searchTrends.map((trendType) => (
-        <div className="searchTrend">
+        <div className="searchTrend" key={trendType.title}>
           <h2 className="searchTrend__title">{trendType.title}</h2>
+
+          {/* {<svg src={iconComponents.TrendUp.type}></svg>} */}
           <div className="searchTrend__btns">
-            {trendType.btns.map((trend) => (
-              <button type="button">{trend}</button>
+            {trendType.btns.map((btn) => (
+              <button type="button" key={btn.name}>
+                {btn.icon ? (
+                  <img src={svgConverter(btn.icon, iconComponents)} alt="" />
+                ) : null}
+                <p>{btn.name}</p>
+              </button>
             ))}
           </div>
         </div>

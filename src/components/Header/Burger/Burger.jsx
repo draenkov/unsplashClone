@@ -1,12 +1,15 @@
-import { useState } from 'react';
+import PropTypes from 'prop-types';
 import BurgerCommunity from './BurgerSections/BurgerCommunity';
 import BurgerCompany from './BurgerSections/BurgerCompany';
 import BurgerProduct from './BurgerSections/BurgerProduct';
 import '../../../style/Burger.css';
 
-const Burger = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+const Burger = ({
+  isMenuOpen,
+  setIsMenuOpen,
+  isUserMenuOpen,
+  setIsUserMenuOpen,
+}) => {
   const footerBtns = ['License', 'Privacy Policy', 'Terms', 'Security'];
 
   return (
@@ -16,6 +19,10 @@ const Burger = () => {
         role="button"
         tabIndex={0}
         onClick={() => {
+          if (isUserMenuOpen) {
+            setIsUserMenuOpen(false);
+            setIsMenuOpen(!isMenuOpen);
+          }
           setIsMenuOpen(!isMenuOpen);
         }}
         onKeyDown={() => {}}
@@ -23,7 +30,6 @@ const Burger = () => {
         <span />
       </div>
       <div className="burgerMenu">
-        {/* <div className={isMenuOpen ? 'burgerMenu' : 'hiddenMenu'}> */}
         <div
           className={isMenuOpen ? 'burgerMenu__content' : 'hiddenMenuContent'}
         >
@@ -108,3 +114,10 @@ const Burger = () => {
 };
 
 export default Burger;
+
+Burger.propTypes = {
+  isMenuOpen: PropTypes.bool.isRequired,
+  setIsMenuOpen: PropTypes.func.isRequired,
+  isUserMenuOpen: PropTypes.bool.isRequired,
+  setIsUserMenuOpen: PropTypes.func.isRequired,
+};
