@@ -77,6 +77,8 @@
 
 .burgerSection__title svg {
   fill: none;
+  width: 24px;
+  height: 24px;
 }
 
 .burgerSection__link {

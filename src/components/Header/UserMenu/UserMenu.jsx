@@ -39,7 +39,7 @@ const UserMenu = ({
         <div className="userMenu__content">
           <ul>
             {userMenuItems.map((item) => (
-              <UserMenuItem item={item} />
+              <UserMenuItem item={item} key={item} />
             ))}
           </ul>
 

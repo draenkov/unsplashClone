@@ -1,12 +1,7 @@
 import PropTypes from 'prop-types';
-import { svgConverter } from '../../../../utils/svgConverter';
-import TrendUp from '../icons/trend-up.svg';
+import Icon from '../../../Icon/Icon';
 
 const SearchTrends = ({ isInputActive }) => {
-  const iconComponents = {
-    TrendUp: <TrendUp />,
-  };
-
   const searchTrends = [
     {
       title: 'Trending Searches',
@@ -49,12 +44,11 @@ const SearchTrends = ({ isInputActive }) => {
         <div className="searchTrend" key={trendType.title}>
           <h2 className="searchTrend__title">{trendType.title}</h2>
 
-          {/* {<svg src={iconComponents.TrendUp.type}></svg>} */}
           <div className="searchTrend__btns">
             {trendType.btns.map((btn) => (
               <button type="button" key={btn.name}>
                 {btn.icon ? (
-                  <img src={svgConverter(btn.icon, iconComponents)} alt="" />
+                  <Icon type={btn.icon} className={btn.icon} />
                 ) : null}
                 <p>{btn.name}</p>
               </button>

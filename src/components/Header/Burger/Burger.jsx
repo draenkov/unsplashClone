@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
-import BurgerCommunity from './BurgerSections/BurgerCommunity';
-import BurgerCompany from './BurgerSections/BurgerCompany';
-import BurgerProduct from './BurgerSections/BurgerProduct';
+
 import '../../../style/Burger.css';
+import BurgerSection from './BurgerSections/BurgerSection';
 
 const Burger = ({
   isMenuOpen,
@@ -11,6 +10,43 @@ const Burger = ({
   setIsUserMenuOpen,
 }) => {
   const footerBtns = ['License', 'Privacy Policy', 'Terms', 'Security'];
+
+  const sectionInfo = [
+    {
+      title: 'Company',
+      links: [
+        'About',
+        'History',
+        'Join the team',
+        'Press',
+        'Contact us',
+        'Help center',
+      ],
+      icon: 'Company',
+    },
+    {
+      title: 'Product',
+      links: [
+        'Developers/API',
+        'Unsplash Dataset',
+        'Unsplash for IOS',
+        'Apps & Plugins',
+      ],
+      icon: 'Product',
+    },
+    {
+      title: 'Community',
+      links: [
+        'Become a Contributor',
+        'Topics',
+        'Collections',
+        'Trends',
+        'Unsplash Awards',
+        'Stats',
+      ],
+      icon: 'Community',
+    },
+  ];
 
   return (
     <div className="burger">
@@ -38,9 +74,9 @@ const Burger = ({
             <div className="angle__content" />
           </div>
           <div className="burgerMenu__content__main">
-            <BurgerCompany />
-            <BurgerProduct />
-            <BurgerCommunity />
+            {sectionInfo.map((section) => (
+              <BurgerSection section={section} key={section.title} />
+            ))}
           </div>
 
           <div className="burgerMenu__content__footer">

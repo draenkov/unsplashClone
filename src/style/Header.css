@@ -199,9 +199,9 @@
   margin-right: 10px;
 }
 
-.searchTrend img {
+.trendUp {
   width: 16px;
-  fill: #d70d0d;
+  fill: #767676;
 }
 
 /* userMenu */
