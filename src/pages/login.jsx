@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { UnsplashService } from '../api/splash/provider';
@@ -9,20 +9,26 @@ import { setAccessToken } from '../store/actions/photo/auth.actions';
 const Login = () => {
   const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
+  const executedRef = useRef(false);
 
   useEffect(() => {
+    if (executedRef.current) {
+      return;
+    }
     const code = searchParams.get('code');
 
     if (!code) {
       return;
     }
-    console.log(UnsplashService);
+
     // Сохранить токен в стор
     UnsplashService.getAccessToken(code).then(
       dispatch(setAccessToken('accessToken'))
     );
+
     // UnsplashService.getUserName();
-    console.log(UnsplashService);
+
+    executedRef.current = true;
   }, []);
   return (
     <>

@@ -95,27 +95,46 @@ class SplashProvider {
       }
     )
       .then((response) => response.json())
+
       .then(({ access_token, refresh_token }) => {
+        console.log(access_token);
         this.accessToken = access_token;
         this.refreshToken = refresh_token;
       });
   }
 
   getUserName() {
-    const userName = fetch(
-      `${this.baseUrl}/me?client_id=${this.accessKey}&scope=read_user`,
-      {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${this.accessToken}`,
-        },
-      }
-    )
+    const userName = fetch(`${this.baseUrl}/me?scope=read_user`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${this.accessToken}`,
+      },
+    })
       .then((response) => response.json())
       .then(console.log)
       .then((response) => UnsplashConverter.toUserName(response));
 
     return userName;
+  }
+
+  searchAutoComplete(value) {
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Host': 'contextualwebsearch-websearch-v1.p.rapidapi.com',
+        'X-RapidAPI-Key': '60daed1952msh0078b777ae56272p1cc231jsn00f38637a868',
+      },
+    };
+    const autoComplete = fetch(
+      `https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/spelling/AutoComplete?text=${value}`,
+      options
+    )
+      .then((response) => response.json())
+
+      .then((response) => UnsplashConverter.toShortVersion(response))
+
+      .catch((err) => console.error(err));
+    return autoComplete;
   }
 }
 

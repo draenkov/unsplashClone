@@ -1,7 +1,11 @@
 import { useState } from 'react';
+import { UnsplashService } from '../../../api/splash/provider';
+import AutoComplete from './AutoComplete/AutoComplete';
 import SearchTrends from './SearchTrends/SearchTrends';
 
 const Form = () => {
+  const [isFocusActive, setIsFocusActive] = useState(false);
+  const [autoCompleteValue, setAutoCompleteValue] = useState('');
   const [isInputActive, setIsInputActive] = useState(false);
 
   return (
@@ -29,13 +33,33 @@ const Form = () => {
           className="search__input"
           placeholder="Search free high-resolution photos"
           onFocus={() => {
-            setIsInputActive(true);
+            if (isInputActive) {
+              return;
+            }
+            setIsFocusActive(true);
           }}
-          onBlur={() => {
+          onBlur={(e) => {
+            e.stopPropagation();
+            setIsFocusActive(false);
             setIsInputActive(false);
           }}
+          onInput={(e) => {
+            setIsFocusActive(false);
+            setIsInputActive(true);
+
+            UnsplashService.searchAutoComplete(e.target.value).then((value) => {
+              if (autoCompleteValue) {
+                return;
+              }
+              setAutoCompleteValue(value);
+            });
+          }}
         />
-        <SearchTrends isInputActive={isInputActive} />
+        {isInputActive ? (
+          <AutoComplete autoCompleteValue={autoCompleteValue} />
+        ) : null}
+
+        <SearchTrends isFocusActive={isFocusActive} />
         <button className="photo__btn" type="button">
           <svg
             width="32"

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import Icon from '../../../Icon/Icon';
 
-const SearchTrends = ({ isInputActive }) => {
+const SearchTrends = ({ isFocusActive }) => {
   const searchTrends = [
     {
       title: 'Trending Searches',
@@ -39,7 +39,7 @@ const SearchTrends = ({ isInputActive }) => {
   ];
 
   return (
-    <div className={isInputActive ? 'searchTrends' : 'hidden'}>
+    <div className={isFocusActive ? 'searchTrends' : 'hidden'}>
       {searchTrends.map((trendType) => (
         <div className="searchTrend" key={trendType.title}>
           <h2 className="searchTrend__title">{trendType.title}</h2>
@@ -63,5 +63,5 @@ const SearchTrends = ({ isInputActive }) => {
 export default SearchTrends;
 
 SearchTrends.propTypes = {
-  isInputActive: PropTypes.bool.isRequired,
+  isFocusActive: PropTypes.bool.isRequired,
 };

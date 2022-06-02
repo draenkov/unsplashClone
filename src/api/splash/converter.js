@@ -73,6 +73,10 @@ class Converter {
   toUserName(userInfo) {
     return userInfo.username;
   }
+
+  toShortVersion(autoComplete) {
+    return autoComplete.slice(0, 5);
+  }
 }
 
 export const UnsplashConverter = new Converter();

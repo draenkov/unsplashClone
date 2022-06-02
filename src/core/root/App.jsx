@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { UnsplashService } from '../../api/splash/provider';
@@ -14,18 +14,24 @@ import { popupSelector } from '../../store/selectors/popup.selector';
 import './App.css';
 
 const App = () => {
+  const executedRef = useRef(false);
+
   const dispatch = useDispatch();
   useScroll();
 
   const isModalOpened = useSelector(popupSelector);
 
   useEffect(() => {
+    if (executedRef.current) {
+      return;
+    }
     UnsplashService.getStartPhotos().then((result) => {
       dispatch(setPhotos(result));
     });
     UnsplashService.getPhotoOfTheDay().then((result) => {
       dispatch(setPOTD(result));
     });
+    executedRef.current = true;
   }, []);
   return (
     <div className={`App ${isModalOpened ? 'scrollHidden' : ''}`}>
