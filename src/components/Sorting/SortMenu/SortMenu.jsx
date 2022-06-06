@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { setSortOption } from '../../../store/actions/search/search.actions';
 import CheckIcon from '../../Icon/IconComponents/CheckIcon';
 
-const SortMenu = ({ isMenuActive }) => {
+const SortMenu = ({ isMenuActive, setActiveSortOption }) => {
   const dispatch = useDispatch();
   const sortOptions = ['Relevance', 'Newest'];
 
@@ -16,7 +16,11 @@ const SortMenu = ({ isMenuActive }) => {
             <li key={option}>
               <Link
                 to="/searchResult"
+                onMouseDown={(e) => {
+                  e.preventDefault();
+                }}
                 onClick={() => {
+                  setActiveSortOption(option);
                   if (option === 'Relevance') {
                     dispatch(setSortOption('relevant'));
 
@@ -42,4 +46,5 @@ export default SortMenu;
 
 SortMenu.propTypes = {
   isMenuActive: PropTypes.bool.isRequired,
+  setActiveSortOption: PropTypes.func.isRequired,
 };

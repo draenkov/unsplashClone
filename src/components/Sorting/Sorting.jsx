@@ -4,6 +4,7 @@ import SortMenu from './SortMenu/SortMenu';
 
 const Sorting = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
+  const [activeSortOption, setActiveSortOption] = useState('Relevance');
 
   return (
     <div className="sorting">
@@ -39,9 +40,12 @@ const Sorting = () => {
               }}
             >
               Sort by&nbsp;
-              <span>Relevance</span>
+              <span>{activeSortOption}</span>
             </button>
-            <SortMenu isMenuActive={isMenuActive} />
+            <SortMenu
+              isMenuActive={isMenuActive}
+              setActiveSortOption={setActiveSortOption}
+            />
           </div>
         </div>
       </div>
