@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { UnsplashService } from '../../../api/splash/provider';
+import useDebounce from '../../../hooks/useDebounce';
 import {
   openSearchPage,
   setSavedInput,
@@ -24,13 +25,15 @@ const Form = () => {
   const isSearchPageOpen = useSelector(searchPageSelector);
   const savedInputValue = useSelector(savedInputSelector);
 
+  const debouncedInputValue = useDebounce(inputValue, 500);
+
   useEffect(() => {
-    if (inputValue) {
-      UnsplashService.searchAutoComplete(inputValue).then((value) => {
+    if (debouncedInputValue) {
+      UnsplashService.searchAutoComplete(debouncedInputValue).then((value) => {
         setAutoCompleteValue(value);
       });
     }
-  }, [inputValue]);
+  }, [debouncedInputValue]);
 
   return (
     <form className="search">
