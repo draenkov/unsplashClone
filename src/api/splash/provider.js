@@ -97,7 +97,6 @@ class SplashProvider {
       .then((response) => response.json())
 
       .then(({ access_token, refresh_token }) => {
-        console.log(access_token);
         this.accessToken = access_token;
         this.refreshToken = refresh_token;
       });
@@ -130,11 +129,35 @@ class SplashProvider {
       options
     )
       .then((response) => response.json())
+      .then((response) => UnsplashConverter.toShortVersion(response));
 
-      .then((response) => UnsplashConverter.toShortVersion(response))
-
-      .catch((err) => console.error(err));
     return autoComplete;
+  }
+
+  getsearchPhotos(input, sortOption) {
+    const searchPhotos = fetch(
+      `${this.baseUrl}/search/photos?client_id=${this.accessKey}&query=${input}&page=1&per_page=15&order_by=${sortOption}`
+    )
+      .then((response) => response.json())
+
+      .then((response) => UnsplashConverter.toSearchPhotos(response))
+
+      .then((photos) => UnsplashConverter.toMap(photos));
+
+    return searchPhotos;
+  }
+
+  getMoreSearchPhotos(input, page) {
+    const morePhotos = fetch(
+      `${this.baseUrl}/search/photos?client_id=${this.accessKey}&query=${input}&page=${page}&per_page=15`
+    )
+      .then((response) => response.json())
+
+      .then((response) => UnsplashConverter.toSearchPhotos(response))
+
+      .then((photos) => UnsplashConverter.toMapBase(photos));
+
+    return morePhotos;
   }
 }
 

@@ -7,6 +7,7 @@ import useScroll from '../../hooks/useScroll';
 
 import Home from '../../pages/home';
 import Login from '../../pages/login';
+import SearchResult from '../../pages/searchResult';
 import { setPhotos, setPOTD } from '../../store/actions/photo/photo.actions';
 
 import { popupSelector } from '../../store/selectors/popup.selector';
@@ -38,6 +39,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/searchResult" element={<SearchResult />} />
       </Routes>
       <Portal />
     </div>

@@ -5,6 +5,10 @@ import { useSelector } from 'react-redux';
 
 import { UnsplashService } from '../../../api/splash/provider';
 import { photosSelector } from '../../../store/selectors/photos.selector';
+import {
+  searchPageSelector,
+  searchPhotosSelector,
+} from '../../../store/selectors/search.selector';
 
 import '../../../style/GalleryModal.css';
 import convertDates from '../../../utils/convertDates';
@@ -18,7 +22,13 @@ const GalleryModal = ({ photoId }) => {
   const [isZoomed, setIsZoomed] = useState(false);
 
   const [stats, setStats] = useState('');
-  const photo = useSelector(photosSelector).get(photoId);
+  const isSearchPageOpen = useSelector(searchPageSelector);
+  const photos = useSelector(photosSelector);
+  const searchPhotos = useSelector(searchPhotosSelector);
+
+  const photo = isSearchPageOpen
+    ? searchPhotos.get(photoId)
+    : photos.get(photoId);
   useEffect(() => {
     UnsplashService.getStatistics(photo.id).then((result) => setStats(result));
   }, []);

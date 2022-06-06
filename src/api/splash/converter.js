@@ -75,7 +75,17 @@ class Converter {
   }
 
   toShortVersion(autoComplete) {
-    return autoComplete.slice(0, 5);
+    if (Array.isArray(autoComplete)) {
+      return autoComplete.slice(0, 5);
+    }
+    console.log('Limit of requests is over (100/day)');
+    return null;
+  }
+
+  toSearchPhotos(photoResponse) {
+    const photoInfo = photoResponse.results;
+
+    return photoInfo.map((photo) => this.toCorrectPhoto(photo));
   }
 }
 

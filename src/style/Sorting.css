@@ -1,0 +1,155 @@
+.sorting {
+  top: 62px;
+  background: #fff;
+  position: sticky;
+  z-index: 19;
+}
+
+.sortingWrap {
+  box-shadow: inset 0 -1px #d1d1d1;
+  padding-left: 20px;
+  padding-right: 20px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+
+.sortSubjects {
+  display: flex;
+  align-items: center;
+}
+
+.sortSubjects__item {
+  align-items: center;
+  display: flex;
+  font-size: 14px;
+  height: 56px;
+  text-decoration: none;
+  box-shadow: inset 0 -2px #111;
+  color: #111;
+}
+
+.sortSubjects__item p {
+  font-weight: 500;
+  padding-left: 5px;
+  font-family: Helvetica, sans-serif;
+}
+
+.sortSubjects__item svg {
+  fill: #111;
+  height: 18px;
+  margin-right: 4px;
+  transition: fill 0.1s ease-in-out;
+  width: 18px;
+}
+
+.sortOptions {
+  display: flex;
+  align-items: center;
+  z-index: 30;
+}
+
+.sortOptions:hover .sortOptions__item button {
+  color: #000;
+}
+
+.sortOptions:hover .sortOptions__item span::after {
+  border-top-color: #767676;
+}
+
+.sortOptions__item button {
+  color: #767676;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 7px 1px;
+  border: none;
+  background-color: #fff;
+}
+
+.sortOptions__item span {
+  color: #000;
+}
+
+.sortOptions__item span::after {
+  border: 5px solid #0000;
+  border-top-color: #d1d1d1;
+  content: '';
+  margin-left: 8px;
+  position: relative;
+  top: 12px;
+  transition: border 0.1s ease-in-out;
+}
+
+.sortMenu {
+  position: absolute;
+  inset: 0px 0px auto auto;
+  transform: translate3d(-20px, 48px, 0px);
+  transition: transform 200ms cubic-bezier(0.24, 0.22, 0.015, 1.56) 0s,
+    opacity 100ms ease-in-out 0s;
+}
+
+.sortMenu__content {
+  background-color: rgb(255, 255, 255);
+  padding-bottom: 8px;
+  padding-top: 8px;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  box-shadow: 0 8px 16px #00000029;
+  min-width: 135px;
+}
+
+.sortMenu__content li {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sortMenu__content li a {
+  display: flex;
+  padding: 8px 16px;
+  transition: all 0.1s ease-in-out;
+  box-shadow: unset;
+  color: #767676;
+  font-size: 15px;
+  text-decoration: none;
+  line-height: 16px;
+  margin-left: 8px;
+  margin-right: 8px;
+  position: relative;
+}
+
+.sortMenu__content li:hover {
+  background: #f5f5f5;
+}
+
+.check {
+  left: -3px;
+  position: absolute;
+}
+
+.check svg {
+  height: 16px;
+  width: 16px;
+}
+
+.hiddenSortMenu {
+  min-width: 135px;
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+  inset: 0px 0px auto auto;
+  transform: translate3d(15px, 24px, 0px) scale(0.5);
+  transition: all 150ms ease-in-out 0s, opacity 150ms ease-in-out 0s;
+}
+
+.searchValue {
+  display: flex;
+  padding: 60px 0 72px;
+}
+
+.searchValue h1 {
+  font-size: 46px;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-left: 140px;
+}

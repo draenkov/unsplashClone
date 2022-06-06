@@ -3,9 +3,19 @@ import { photosSelector } from '../../../store/selectors/photos.selector';
 import GalleryItem from './GalleryItem/GalleryItem';
 import '../../../style/Gallery.css';
 import { splitIntpSides } from '../../../utils/splitIntoSides';
+import {
+  searchPageSelector,
+  searchPhotosSelector,
+} from '../../../store/selectors/search.selector';
 
 const Gallery = () => {
-  const photosInfo = Array.from(useSelector(photosSelector).values());
+  const isSearchPageOpen = useSelector(searchPageSelector);
+  const searchPhotos = useSelector(searchPhotosSelector);
+  const photos = useSelector(photosSelector);
+
+  const photosInfo = Array.from(
+    isSearchPageOpen ? searchPhotos.values() : photos.values()
+  );
 
   const photosBySides = splitIntpSides(photosInfo);
 

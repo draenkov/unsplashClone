@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import CheckIcon from './IconComponents/CheckIcon';
 import CommunityIcon from './IconComponents/CommunityIcon';
 import CompanyIcon from './IconComponents/CompanyIcon';
 import ProductIcon from './IconComponents/ProductIcon';
@@ -9,6 +10,7 @@ const IconTypes = {
   Community: CommunityIcon,
   Company: CompanyIcon,
   Product: ProductIcon,
+  Check: CheckIcon,
 };
 
 const Icon = ({ type, fill, width, height, className }) => {

@@ -6,6 +6,7 @@ const Main = () => (
   <main className="main">
     <Filter />
     <Potd />
+
     <Gallery />
   </main>
 );
