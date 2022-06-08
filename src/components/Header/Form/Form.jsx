@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { UnsplashService } from '../../../api/splash/provider';
 import useDebounce from '../../../hooks/useDebounce';
 import {
@@ -25,7 +25,8 @@ const Form = () => {
   const isSearchPageOpen = useSelector(searchPageSelector);
   const savedInputValue = useSelector(savedInputSelector);
 
-  const debouncedInputValue = useDebounce(inputValue, 500);
+  const debouncedInputValue = useDebounce(inputValue, 1000);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (debouncedInputValue) {
@@ -84,6 +85,14 @@ const Form = () => {
             setInputValue(e.target.value);
           }}
           value={isSearchPageOpen ? savedInputValue : inputValue}
+          onKeyDown={(e) => {
+            if (e.keyCode === 13) {
+              // e.stopPropagation();
+              dispatch(setSavedInput(inputValue));
+              dispatch(openSearchPage());
+              navigate('/searchResult');
+            }
+          }}
         />
 
         <AutoComplete

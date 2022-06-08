@@ -1,5 +1,11 @@
 const InfoBtn = () => (
-  <button className="infoBtn" type="button">
+  <button
+    className="infoBtn"
+    type="button"
+    onClick={(e) => {
+      e.stopPropagation();
+    }}
+  >
     <svg
       width="32"
       height="32"

@@ -12,6 +12,7 @@ export class Photo {
     width,
     height,
     createdAt,
+    download,
   }) {
     this.id = id;
     this.url = url;
@@ -25,5 +26,6 @@ export class Photo {
     this.width = width;
     this.height = height;
     this.createdAt = createdAt;
+    this.download = download;
   }
 }

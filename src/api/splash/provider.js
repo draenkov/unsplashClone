@@ -129,6 +129,7 @@ class SplashProvider {
       options
     )
       .then((response) => response.json())
+
       .then((response) => UnsplashConverter.toShortVersion(response));
 
     return autoComplete;

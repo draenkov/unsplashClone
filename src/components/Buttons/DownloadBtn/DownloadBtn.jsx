@@ -1,5 +1,15 @@
-const DownloadBtn = () => (
-  <button className="downBtn" type="button">
+import PropTypes from 'prop-types';
+import { saveAs } from 'file-saver';
+
+const DownloadBtn = ({ downloadLink }) => (
+  <button
+    className="downBtn"
+    type="button"
+    onClick={(e) => {
+      e.stopPropagation();
+      saveAs(downloadLink, 'Photo');
+    }}
+  >
     <svg
       width="32"
       height="32"
@@ -14,3 +24,7 @@ const DownloadBtn = () => (
 );
 
 export default DownloadBtn;
+
+DownloadBtn.propTypes = {
+  downloadLink: PropTypes.string.isRequired,
+};

@@ -1,5 +1,11 @@
 const ShareBtn = () => (
-  <button className="shareBtn" type="button">
+  <button
+    className="shareBtn"
+    type="button"
+    onClick={(e) => {
+      e.stopPropagation();
+    }}
+  >
     <svg
       width="32"
       height="32"

@@ -30,7 +30,7 @@ const GalleryItem = ({ photo }) => {
             <img src={photo.authorImg} alt="" />
             <a href="/#">{photo.author}</a>
           </div>
-          <DownloadBtn />
+          <DownloadBtn downloadLink={photo.urlFull} />
         </div>
       </div>
     </div>
@@ -45,6 +45,7 @@ GalleryItem.propTypes = {
     url: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
     authorImg: PropTypes.string.isRequired,
+    urlFull: PropTypes.string.isRequired,
   }),
 };
 

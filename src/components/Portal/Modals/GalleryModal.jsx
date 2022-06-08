@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { saveAs } from 'file-saver';
 
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -57,7 +58,14 @@ const GalleryModal = ({ photoId }) => {
           <LikeBtn photo={photo} />
           <AddBtn />
           <div className="download">
-            <button className="downloadBtn" type="button">
+            <button
+              className="downloadBtn"
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                saveAs(photo.urlFull, 'Photo');
+              }}
+            >
               Download
             </button>
             <button className="sizeBtn" type="button">

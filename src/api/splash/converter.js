@@ -18,6 +18,7 @@ class Converter {
     width,
     height,
     created_at,
+    links,
   }) {
     return new Photo({
       id,
@@ -28,7 +29,7 @@ class Converter {
       authorImg: user.profile_image.small,
       authorPage: user.username,
       likes,
-
+      download: links.download_location,
       likedByUser: liked_by_user,
       width,
       height,
