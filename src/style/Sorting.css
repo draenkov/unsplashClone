@@ -1,6 +1,6 @@
 .sorting {
   top: 62px;
-  background: #fff;
+  background: var(--bgColor);
   position: sticky;
   z-index: 19;
 }
@@ -27,7 +27,7 @@
   height: 56px;
   text-decoration: none;
   box-shadow: inset 0 -2px #111;
-  color: #111;
+  color: var(--hoverColor);
 }
 
 .sortSubjects__item p {
@@ -37,7 +37,7 @@
 }
 
 .sortSubjects__item svg {
-  fill: #111;
+  fill: var(--hoverColor);
   height: 18px;
   margin-right: 4px;
   transition: fill 0.1s ease-in-out;
@@ -51,24 +51,24 @@
 }
 
 .sortOptions:hover .sortOptions__item button {
-  color: #000;
+  color: var(--hoverColor);
 }
 
 .sortOptions:hover .sortOptions__item span::after {
-  border-top-color: #767676;
+  border-top-color: var(--linkColor);
 }
 
 .sortOptions__item button {
-  color: #767676;
+  color: var(--linkColor);
   font-size: 14px;
   line-height: 16px;
   padding: 7px 1px;
   border: none;
-  background-color: #fff;
+  background-color: var(--bgColor);
 }
 
 .sortOptions__item span {
-  color: #000;
+  color: var(--hoverColor);
 }
 
 .sortOptions__item span::after {
@@ -93,7 +93,7 @@
   background-color: rgb(255, 255, 255);
   padding-bottom: 8px;
   padding-top: 8px;
-  border: 1px solid #d1d1d1;
+  border: var(--btnBorder);
   border-radius: 4px;
   box-shadow: 0 8px 16px #00000029;
   min-width: 135px;
@@ -109,7 +109,7 @@
   padding: 8px 16px;
   transition: all 0.1s ease-in-out;
   box-shadow: unset;
-  color: #767676;
+  color: var(--linkColor);
   font-size: 15px;
   text-decoration: none;
   line-height: 16px;

@@ -4,7 +4,7 @@
 
   height: 62px;
   width: 100%;
-  background-color: #fff;
+  background-color: var(--bgColor);
   padding: 0 20px;
   position: sticky;
   top: 0;
@@ -53,7 +53,7 @@
 
 .search__input:focus {
   outline: none;
-  background-color: #fff;
+  background-color: var(--bgColor);
   border: 1px solid rgb(186, 186, 186);
 }
 
@@ -101,12 +101,12 @@
 .fastMenu__link {
   font-size: 14px;
   font-weight: 500;
-  color: #767676;
+  color: var(--linkColor);
   text-decoration: none;
 }
 
 .fastMenu__link:hover {
-  color: black;
+  color: var(--hoverColor);
   cursor: pointer;
 }
 
@@ -119,14 +119,14 @@
 .auth {
   display: flex;
   align-items: center;
-  color: #767676;
+  color: var(--linkColor);
   padding: 0 20px;
 }
 
 .auth__btn {
   border: none;
-  background-color: #fff;
-  color: #767676;
+  background-color: var(--bgColor);
+  color: var(--linkColor);
   font-size: 14px;
   height: 32px;
   line-height: 30px;
@@ -134,24 +134,24 @@
 }
 
 .auth__btn:hover {
-  color: black;
+  color: var(--hoverColor);
   cursor: pointer;
 }
 
 .submit__btn {
   background-color: transparent;
   border-color: #d1d1d1;
-  color: #767676;
+  color: var(--linkColor);
   font-size: 14px;
   line-height: 30px;
-  border: 1px solid #d1d1d1;
+  border: var(--btnBorder);
   border-radius: 4px;
   padding: 0 11px;
 }
 
 .submit__btn:hover {
-  border-color: #767676;
-  color: black;
+  border-color: var(--linkColor);
+  color: var(--hoverColor);
   cursor: pointer;
 }
 
@@ -162,8 +162,8 @@
   position: absolute;
   top: 100%;
   width: 100%;
-  background-color: #fff;
-  border: 1px solid #d1d1d1;
+  background-color: var(--bgColor);
+  border: var(--btnBorder);
   border-radius: 4px;
   box-shadow: 0 8px 16px #00000029;
   transform: translateY(3px);
@@ -177,7 +177,7 @@
 .searchTrend__title {
   font-size: 14px;
   font-weight: 500;
-  color: #111;
+  color: var(--hoverColor);
 }
 
 .searchTrend__btns {
@@ -188,9 +188,9 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: #fff;
-  border: 1px solid #d1d1d1;
-  color: #767676;
+  background-color: var(--bgColor);
+  border: var(--btnBorder);
+  color: var(--linkColor);
   font-size: 14px;
   height: 39px;
   line-height: 30px;
@@ -206,7 +206,7 @@
 
 .TrendUp {
   width: 16px;
-  fill: #767676;
+  fill: var(--linkColor);
 }
 
 /* userMenu */
@@ -230,11 +230,11 @@
   width: 178px;
   padding-bottom: 8px;
   padding-top: 8px;
-  border: 1px solid #d1d1d1;
+  border: var(--btnBorder);
   border-radius: 4px;
   box-shadow: 0 8px 16px #00000029;
   min-width: 135px;
-  background-color: #fff;
+  background-color: var(--bgColor);
   opacity: 1;
   transition: transform 200ms cubic-bezier(0.24, 0.22, 0.015, 1.56) 0s,
     opacity 100ms ease-in-out 0s;
@@ -253,7 +253,7 @@
 .userMenu__logout:hover,
 .userMenu__item:hover a {
   background: #f5f5f5;
-  color: #111;
+  color: var(--hoverColor);
 }
 
 .userMenu__logout,
@@ -261,7 +261,7 @@
   display: block;
   padding: 8px 16px;
   transition: all 0.1s ease-in-out;
-  color: #767676;
+  color: var(--linkColor);
   font-size: 14px;
   text-decoration: none;
 }
@@ -313,8 +313,8 @@
   position: absolute;
   top: 100%;
   width: 100%;
-  background-color: #fff;
-  border: 1px solid #d1d1d1;
+  background-color: var(--bgColor);
+  border: var(--btnBorder);
   border-radius: 4px;
   box-shadow: 0 8px 16px #00000029;
   transform: translateY(3px);
@@ -325,7 +325,7 @@
 .autoComplete__value {
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  background-color: var(--bgColor);
   border: none;
   text-decoration: none;
   font-size: 14px;
@@ -335,7 +335,7 @@
 }
 
 .autoComplete__value a {
-  color: #000;
+  color: var(--hoverColor);
   text-decoration: none;
 }
 

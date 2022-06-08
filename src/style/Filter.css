@@ -6,14 +6,14 @@
   align-items: center;
   padding: 0 20px;
   overflow: hidden;
-  background-color: #fff;
+  background-color: var(--bgColor);
   position: sticky;
   top: 62px;
   z-index: 1;
 }
 
 .filter button:hover {
-  color: black;
+  color: var(--hoverColor);
 }
 
 .filter__homeBtn {
@@ -54,7 +54,7 @@
 }
 
 .filter__btns__item button:hover {
-  color: black;
+  color: var(--hoverColor);
   cursor: pointer;
 }
 
@@ -64,11 +64,11 @@
 
 .filter button {
   border: none;
-  background-color: #fff;
+  background-color: var(--bgColor);
   font-size: 14px;
   font-weight: 500;
   white-space: nowrap;
-  color: #767676;
+  color: var(--linkColor);
 }
 
 .leftArrow {
@@ -78,7 +78,7 @@
   left: 0;
 
   padding-left: 20px;
-  fill: #767676;
+  fill: var(--linkColor);
   z-index: 2;
 }
 
@@ -88,7 +88,7 @@
   position: absolute;
   right: 0;
 
-  fill: #767676;
+  fill: var(--linkColor);
   z-index: 2;
 }
 

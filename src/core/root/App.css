@@ -22,3 +22,11 @@ button {
   opacity: 0;
   transition: all linear 2s;
 }
+
+:root {
+  --bgColor: #fff;
+  --linkColor: #767676;
+  --hoverColor: #000;
+  --btnBorder: 1px solid #d1d1d1;
+  --btnBoxShadow: 0 1px 1px #0000000a;
+}
