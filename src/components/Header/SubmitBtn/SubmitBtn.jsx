@@ -1,6 +1,7 @@
 const SubmitBtn = () => (
   <button className="submit__btn" type="button">
-    Submit a photo
+    Submit
+    <span>&nbsp;a photo</span>
   </button>
 );
 

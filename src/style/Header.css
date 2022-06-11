@@ -96,6 +96,7 @@
 .fastMenuItem {
   padding: 20px 12px;
   cursor: pointer;
+  margin-bottom: 4px;
 }
 
 .fastMenu__link {
@@ -131,6 +132,7 @@
   height: 32px;
   line-height: 30px;
   padding: 0 11px;
+  white-space: nowrap;
 }
 
 .auth__btn:hover {
@@ -147,6 +149,7 @@
   border: var(--btnBorder);
   border-radius: 4px;
   padding: 0 11px;
+  white-space: nowrap;
 }
 
 .submit__btn:hover {
@@ -182,6 +185,7 @@
 
 .searchTrend__btns {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .searchTrend__btns button {
@@ -341,4 +345,66 @@
 
 .autoCompleteHidden {
   visibility: hidden;
+}
+
+/* Media query */
+
+@media (max-width: 1065px) {
+  .searchTrends {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .submit__btn span {
+    display: none;
+  }
+}
+
+@media (max-width: 948px) {
+  .v-line {
+    display: none;
+  }
+  .auth {
+    padding-left: 0;
+  }
+  .fastMenu {
+    padding-right: 0;
+  }
+
+  .filter__homeBtn {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0 12px;
+    height: 56px;
+  }
+
+  .header > .fastMenu,
+  .header > .auth,
+  .header > .submit__btn,
+  .photo__btn {
+    display: none;
+  }
+
+  .logo img {
+    width: 26px;
+    height: 26px;
+  }
+
+  .submit__btn span {
+    display: block;
+  }
+
+  .submit__btn {
+    display: flex;
+    padding: 0 18px;
+  }
+
+  .login__btn {
+    padding: 0 18px;
+  }
 }

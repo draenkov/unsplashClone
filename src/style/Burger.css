@@ -33,14 +33,14 @@
 
 .burgerMenu__content {
   position: absolute;
-  border: 1px solid #d1d1d1;
+  border: var(--btnBorder);
   border-radius: 4px;
   box-shadow: 0 8px 16px #00000029;
   min-width: 135px;
   inset: 0px 0px auto auto;
   transform: translate3d(-19.6375px, 55.2px, 0px);
   z-index: 1;
-  background-color: #fff;
+  background-color: var(--bgColor);
 
   opacity: 1;
   transition: transform 200ms cubic-bezier(0.24, 0.22, 0.015, 1.56) 0s,
@@ -90,7 +90,7 @@
 .burgerSection__link a {
   font-size: 14px;
   text-decoration: none;
-  color: #767676;
+  color: var(--linkColor);
   transition: all 0.1s ease-in-out;
   padding: 6px 0;
 }
@@ -117,7 +117,7 @@
 .footer__btns a {
   font-size: 14px;
   text-decoration: none;
-  color: #767676;
+  color: var(--linkColor);
   transition: all 0.1s ease-in-out;
   font-weight: 500;
 }
@@ -145,7 +145,7 @@
 }
 
 .burger-btn svg {
-  fill: #767676;
+  fill: var(--linkColor);
 }
 
 .burger-btn:hover svg {
@@ -160,4 +160,161 @@
   inset: 0px 0px auto auto;
   transform: translate3d(232.3625px, -123.80000000000001px, 0px) scale(0.2);
   transition: all 200ms ease-in-out 0s, opacity 100ms ease-in-out 0s;
+}
+
+/* Medium size */
+
+.burgerMenu__content--m {
+  position: absolute;
+  border: var(--btnBorder);
+  border-radius: 4px;
+  box-shadow: 0 8px 16px #00000029;
+  min-width: 135px;
+
+  transform: translate3d(-219.6375px, 8.200000000000003px, 0px);
+  z-index: 1;
+  background-color: var(--bgColor);
+
+  opacity: 1;
+  transition: transform 200ms cubic-bezier(0.24, 0.22, 0.015, 1.56) 0s,
+    opacity 100ms ease-in-out 0s;
+}
+.hiddenMenuContent--m {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+
+  transform: translate3d(-113.63750000000005px, -55.80000000000001px, 4px)
+    scale(0.2);
+  transition: all 200ms ease-in-out 0s, opacity 100ms ease-in-out 0s;
+}
+
+.burgerMenu__main--m {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 32px 32px;
+  min-width: 268px;
+  text-align: left;
+}
+
+.burgerSection--m {
+  display: flex;
+  flex-direction: row;
+
+  min-width: 193px;
+}
+
+.burgerSection--m details {
+  width: 100%;
+}
+
+.burgerSection--m summary {
+  list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.burgerSection__content--m {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  padding-top: 8px;
+}
+
+.burgerSection__content--m div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.fillNone {
+  width: 24px;
+  height: 24px;
+  fill: none;
+}
+
+.burgerSection__content--m h1 {
+  font-size: 14px;
+  margin: 0;
+  font-family: Helvetica Neue, Helvetica, Ubuntu, Roboto, Noto, Segoe UI, Arial,
+    sans-serif;
+  padding-left: 14px;
+}
+
+.arrowSvg {
+  fill: var(--linkColor);
+}
+
+.burgerSection--m ul {
+  padding-left: 24px;
+}
+
+.burgerSection--m li {
+  list-style: none;
+}
+
+.burgerSection--m a {
+  display: block;
+  text-decoration: none;
+  padding: 6px;
+  margin-left: 10px;
+  color: #767676;
+  transition: color 0.1s ease-in-out, opacity 0.1s ease-in-out;
+}
+
+.burgerMenu__angle--m {
+  position: absolute;
+  left: 0px;
+  transform: translate3d(244px, 0px, 0px);
+  bottom: calc(100% - 1px);
+}
+
+.burgerMenu__content__footer--m {
+  display: none;
+}
+
+.burgerMenu__content__signin--m {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .burgerMenu__content__footer--m {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 1px solid #0003;
+    padding: 16px 24px;
+  }
+
+  .burgerMenu__content__signin--m {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    padding: 0 24px 16px;
+  }
+
+  .burgerMenu__content__signin--m p,
+  .burgerMenu__content__signin--m a {
+    font-size: 14px;
+    color: var(--linkColor);
+    font-weight: 400;
+    line-height: 1.6;
+    white-space: nowrap;
+  }
+
+  .login__btn {
+    border: var(--btnBorder);
+    border-radius: 4px;
+  }
+
+  .burgerMenu__main--m {
+    padding: 24px;
+  }
 }

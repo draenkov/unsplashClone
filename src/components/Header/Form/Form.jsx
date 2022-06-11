@@ -11,6 +11,7 @@ import {
   savedInputSelector,
   searchPageSelector,
 } from '../../../store/selectors/search.selector';
+import { windowWidthSelector } from '../../../store/selectors/window.selector';
 
 import AutoComplete from './AutoComplete/AutoComplete';
 import SearchTrends from './SearchTrends/SearchTrends';
@@ -27,10 +28,12 @@ const Form = () => {
 
   const debouncedInputValue = useDebounce(inputValue, 1000);
   const navigate = useNavigate();
+  const screenWidth = useSelector(windowWidthSelector);
 
   useEffect(() => {
     if (debouncedInputValue) {
-      UnsplashService.searchAutoComplete(debouncedInputValue).then((value) => {
+      UnsplashService.searchAutoComplete(debouncedInputValue)
+      .then((value) => {
         setAutoCompleteValue(value);
       });
     }
@@ -67,8 +70,12 @@ const Form = () => {
         </button>
 
         <input
-          className="search__input"
-          placeholder="Search free high-resolution photos"
+          className="search__input "
+          placeholder={
+            screenWidth > 990
+              ? 'Search free high-resolution photos'
+              : 'Search photos'
+          }
           onFocus={() => {
             if (isInputActive) {
               return;
@@ -87,7 +94,6 @@ const Form = () => {
           value={isSearchPageOpen ? savedInputValue : inputValue}
           onKeyDown={(e) => {
             if (e.keyCode === 13) {
-              // e.stopPropagation();
               dispatch(setSavedInput(inputValue));
               dispatch(openSearchPage());
               navigate('/searchResult');

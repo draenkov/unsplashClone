@@ -1,11 +1,17 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { popupSelector } from '../../store/selectors/popup.selector';
 import '../../style/Sorting.css';
 import SortMenu from './SortMenu/SortMenu';
 
 const Sorting = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
   const [activeSortOption, setActiveSortOption] = useState('Relevance');
+  const isModalOpen = useSelector(popupSelector);
 
+  if (isModalOpen) {
+    return null;
+  }
   return (
     <div className="sorting">
       <div className="sortingWrap">

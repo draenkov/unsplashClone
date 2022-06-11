@@ -55,8 +55,11 @@ const GalleryModal = ({ photoId }) => {
           </div>
         </div>
         <div className="content__header__btns">
-          <LikeBtn photo={photo} />
-          <AddBtn />
+          <div className="btn__group">
+            <LikeBtn photo={photo} />
+            <AddBtn />
+          </div>
+
           <div className="download">
             <button
               className="downloadBtn"

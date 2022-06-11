@@ -14,7 +14,55 @@
   object-fit: cover;
 }
 
+.potd__img {
+  width: 100%;
+  height: 100%;
+}
+
+.potd__img::after {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    #00000061 0,
+    #00000061 3.5%,
+    rgba(0, 0, 0, 0.379) 7%,
+    rgba(0, 0, 0, 0.377) 10.35%,
+    rgba(0, 0, 0, 0.375) 13.85%,
+    rgba(0, 0, 0, 0.372) 17.35%,
+    rgba(0, 0, 0, 0.369) 20.85%,
+    rgba(0, 0, 0, 0.366) 24.35%,
+    rgba(0, 0, 0, 0.364) 27.85%,
+    rgba(0, 0, 0, 0.361) 31.35%,
+    rgba(0, 0, 0, 0.358) 34.85%,
+    rgba(0, 0, 0, 0.355) 38.35%,
+    rgba(0, 0, 0, 0.353) 41.85%,
+    rgba(0, 0, 0, 0.351) 45.35%,
+    #00000059 48.85%,
+    rgba(0, 0, 0, 0.353) 52.35%,
+    #0000005c 55.85%,
+    rgba(0, 0, 0, 0.371) 59.35%,
+    rgba(0, 0, 0, 0.385) 62.85%,
+    rgba(0, 0, 0, 0.402) 66.35%,
+    #0000006b 69.85%,
+    #00000070 73.35%,
+    #00000075 76.85%,
+    #0000007a 80.35%,
+    rgba(0, 0, 0, 0.498) 83.85%,
+    rgba(0, 0, 0, 0.515) 87.35%,
+    rgba(0, 0, 0, 0.529) 90.85%,
+    #0000008a 94.35%,
+    rgba(0, 0, 0, 0.547) 97.85%,
+    #0000008c
+  );
+  content: '';
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
 .introduce {
+  width: 100%;
   position: absolute;
   top: 20%;
   left: 20%;
@@ -88,4 +136,49 @@
 .potd__footer p a {
   color: #fffc;
   text-decoration: none;
+}
+
+/* Media query */
+
+@media (max-width: 768px) {
+  .potd {
+    height: 312px;
+  }
+
+  .potd__footer {
+    display: none;
+  }
+
+  .introduce {
+    width: 100%;
+    left: 0;
+    padding-left: 12px;
+  }
+
+  .introduce h1 {
+    font-size: 24px;
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .introduce p {
+    font-weight: 400;
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+
+  .potd form {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .potd {
+    height: 208px;
+  }
+
+  .introduce {
+    padding-top: 0;
+  }
 }

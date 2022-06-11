@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
+import ArrowIcon from './IconComponents/ArrowIcon';
 import CheckIcon from './IconComponents/CheckIcon';
 import CommunityIcon from './IconComponents/CommunityIcon';
 import CompanyIcon from './IconComponents/CompanyIcon';
+import LegalIcon from './IconComponents/LegalIcon';
 import ProductIcon from './IconComponents/ProductIcon';
 import TrendUpIcon from './IconComponents/TrendUpIcon';
 
@@ -11,6 +13,8 @@ const IconTypes = {
   Company: CompanyIcon,
   Product: ProductIcon,
   Check: CheckIcon,
+  Legal: LegalIcon,
+  Arrow: ArrowIcon,
 };
 
 const Icon = ({ type, fill, width, height, className }) => {

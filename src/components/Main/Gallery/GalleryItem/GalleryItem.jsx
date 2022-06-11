@@ -8,6 +8,7 @@ import LikeBtn from '../../../Buttons/LikeBtn/LikeBtn';
 
 const GalleryItem = ({ photo }) => {
   const dispatch = useDispatch();
+
   return (
     <div
       className="galleryItem"
@@ -46,6 +47,7 @@ GalleryItem.propTypes = {
     author: PropTypes.string.isRequired,
     authorImg: PropTypes.string.isRequired,
     urlFull: PropTypes.string.isRequired,
+    urlRegular: PropTypes.string.isRequired,
   }),
 };
 

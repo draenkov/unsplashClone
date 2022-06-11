@@ -109,3 +109,19 @@
   right: 0;
   z-index: 1;
 }
+
+@media (max-width: 948px) {
+  .filter {
+    padding-left: 0;
+  }
+
+  .filter__homeBtn {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .filter {
+    top: 56px;
+  }
+}

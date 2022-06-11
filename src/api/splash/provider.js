@@ -89,9 +89,11 @@ class SplashProvider {
       `https://unsplash.com/oauth/token?grant_type=authorization_code&code=${code}&redirect_uri=http://localhost:3000/login&client_id=${process.env.REACT_APP_ACCESS_KEY}&client_secret=${process.env.REACT_APP_SECRET_KEY}`,
       {
         method: 'POST',
+
         // headers: {
         //   Authorization: `Bearer ${this.accessToken}`,
         // },
+        // withCredentials: true,
       }
     )
       .then((response) => response.json())
@@ -110,7 +112,7 @@ class SplashProvider {
       },
     })
       .then((response) => response.json())
-      .then(console.log)
+
       .then((response) => UnsplashConverter.toUserName(response));
 
     return userName;
@@ -124,6 +126,7 @@ class SplashProvider {
         'X-RapidAPI-Key': '60daed1952msh0078b777ae56272p1cc231jsn00f38637a868',
       },
     };
+
     const autoComplete = fetch(
       `https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/spelling/AutoComplete?text=${value}`,
       options

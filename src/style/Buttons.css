@@ -86,3 +86,16 @@
   background-color: #e04c4c;
   fill: var(--bgColor);
 }
+
+.shareBtn,
+.infoBtn,
+.moreBtn {
+  height: 32px;
+}
+
+@media (max-width: 768px) {
+  .shareBtn span,
+  .infoBtn span {
+    display: none;
+  }
+}

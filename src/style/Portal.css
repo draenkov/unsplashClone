@@ -83,3 +83,25 @@
 .nextPhoto__btn:hover {
   fill: var(--bgColor);
 }
+
+.portal--s {
+  position: sticky;
+  top: 60px;
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    padding: 0;
+  }
+
+  .overlay__close {
+    left: 86%;
+    top: 93%;
+
+    margin: 8px;
+  }
+
+  .overlay__close svg {
+    fill: var(--hoverColor);
+  }
+}

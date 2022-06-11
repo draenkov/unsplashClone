@@ -10,7 +10,9 @@ const Potd = () => {
   return (
     <section className="potd">
       {photoOfTheDay.map((photo) => (
-        <img src={photo.urlFull} alt="" key={Math.random()} />
+        <div className="potd__img" key={photo.urlFull}>
+          <img src={photo.urlFull} alt="" />
+        </div>
       ))}
       <div className="introduce">
         <h1>Unsplash</h1>
