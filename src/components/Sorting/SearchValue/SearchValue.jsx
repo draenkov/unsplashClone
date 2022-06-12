@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
-import { savedInputSelector } from '../../../store/selectors/search.selector';
+import { searchValueSelector } from '../../../store/selectors/search.selector';
 
 const SearchValue = () => {
-  const searchValue = useSelector(savedInputSelector);
+  const searchValue = useSelector(searchValueSelector);
 
   return (
     <div className="searchValue">

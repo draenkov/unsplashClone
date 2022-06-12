@@ -144,15 +144,23 @@
 
 .searchValue {
   display: flex;
-  padding: 60px 0 72px;
+  width: 100%;
+  padding: 60px 60px 72px 140px;
 }
 
 .searchValue h1 {
   font-size: 46px;
   line-height: 1.2;
   font-weight: 700;
-  margin-left: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
+.noSearchResult {
+  padding: 0 140px;
+}
+
+/* Media query */
 
 @media (max-width: 768px) {
   .sorting {
@@ -160,10 +168,16 @@
   }
 
   .searchValue {
-    padding: 24px 0 30px 0;
+    padding: 24px 16px 30px 16px;
   }
 
-  .searchValue h1 {
-    margin-left: 16px;
+  .noSearchResult {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 440px) {
+  .noSearchResult {
+    font-size: 10px;
   }
 }

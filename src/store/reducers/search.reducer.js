@@ -5,6 +5,7 @@ import {
   OPEN_SEARCHPAGE,
   SET_SAVEDINPUT,
   SET_SEARCHPHOTOS,
+  SET_SEARCHVALUE,
   SET_SORTOPTION,
 } from '../actions/search/search.action-types';
 
@@ -13,6 +14,7 @@ const initialState = {
   isSearchPageOpen: false,
   searchPhotos: [],
   sortOption: 'relevant',
+  searchValue: '',
 };
 
 export const searchReducer = (state = initialState, action = {}) => {
@@ -55,6 +57,9 @@ export const searchReducer = (state = initialState, action = {}) => {
 
       return { ...state, searchPhotos: newMap };
     }
+
+    case SET_SEARCHVALUE:
+      return { ...state, searchValue: payload };
 
     default:
       return state;

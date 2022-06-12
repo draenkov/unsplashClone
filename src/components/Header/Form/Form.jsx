@@ -6,6 +6,7 @@ import useDebounce from '../../../hooks/useDebounce';
 import {
   openSearchPage,
   setSavedInput,
+  setSearchValue,
 } from '../../../store/actions/search/search.actions';
 import {
   savedInputSelector,
@@ -25,8 +26,9 @@ const Form = () => {
   const dispatch = useDispatch();
   const isSearchPageOpen = useSelector(searchPageSelector);
   const savedInputValue = useSelector(savedInputSelector);
+  const searchValue = useSelector(setSearchValue);
 
-  const debouncedInputValue = useDebounce(inputValue, 1000);
+  const debouncedInputValue = useDebounce(searchValue, 1000);
   const navigate = useNavigate();
   const screenWidth = useSelector(windowWidthSelector);
 
@@ -46,6 +48,7 @@ const Form = () => {
           type="button"
           onClick={() => {
             dispatch(setSavedInput(inputValue));
+            dispatch(setSearchValue(inputValue));
             if (!isSearchPageOpen) {
               dispatch(openSearchPage());
             }
@@ -88,6 +91,7 @@ const Form = () => {
           onBlur={() => {
             setIsFocusActive(false);
             setIsInputActive(false);
+            console.log('test2');
           }}
           onInput={(e) => {
             setIsFocusActive(false);
@@ -106,11 +110,17 @@ const Form = () => {
             if (e.keyCode === 13 && !isSearchPageOpen) {
               dispatch(openSearchPage());
               dispatch(setSavedInput(inputValue));
+              dispatch(setSearchValue(inputValue));
+              setIsFocusActive(false);
+              setIsInputActive(false);
               navigate('/searchResult');
             }
             if (e.keyCode === 13 && isSearchPageOpen) {
               e.preventDefault();
               dispatch(setSavedInput(inputValue));
+              dispatch(setSearchValue(inputValue));
+              setIsFocusActive(false);
+              setIsInputActive(false);
             }
 
             // if (isSearchPageOpen) {
@@ -126,12 +136,17 @@ const Form = () => {
         />
 
         <SearchTrends isFocusActive={isFocusActive} />
-        <div className={inputValue ? 'inputClear' : 'hidden'}>
+        <div className={isFocusActive || inputValue ? 'inputClear' : 'hidden'}>
           <button
             type="button"
             className="inputClear__btn"
+            onMouseDown={(e) => {
+              e.preventDefault();
+            }}
             onClick={() => {
               setInputValue('');
+              dispatch(setSavedInput(''));
+              console.log('test1');
             }}
           >
             <svg

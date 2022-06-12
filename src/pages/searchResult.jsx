@@ -3,33 +3,36 @@ import { useDispatch, useSelector } from 'react-redux';
 import { UnsplashService } from '../api/splash/provider';
 import Header from '../components/Header/Header';
 import Gallery from '../components/Main/Gallery/Gallery';
+import NoSearchResult from '../components/Sorting/NoSearchResult/NoSearchResult';
 import SearchValue from '../components/Sorting/SearchValue/SearchValue';
 import Sorting from '../components/Sorting/Sorting';
 import { setSearchPhotos } from '../store/actions/search/search.actions';
 import {
-  savedInputSelector,
+  searchPhotosSelector,
+  searchValueSelector,
   sortOptionSelector,
 } from '../store/selectors/search.selector';
 
 const SearchResult = () => {
-  const savedInput = useSelector(savedInputSelector);
+  const searchValue = useSelector(searchValueSelector);
   const sortOption = useSelector(sortOptionSelector);
   const dispatch = useDispatch();
+  const searchArray = useSelector(searchPhotosSelector);
+  console.log(searchArray);
 
   useEffect(() => {
-    UnsplashService.getsearchPhotos(savedInput, sortOption).then(
+    UnsplashService.getsearchPhotos(searchValue, sortOption).then(
       (searchPhotos) => {
         dispatch(setSearchPhotos(searchPhotos));
       }
     );
-  }, [sortOption, savedInput]);
+  }, [sortOption, searchValue]);
   return (
     <>
       <Header />
       <Sorting />
-
       <SearchValue />
-      <Gallery />
+      {searchArray.size === 0 ? <NoSearchResult /> : <Gallery />}
     </>
   );
 };

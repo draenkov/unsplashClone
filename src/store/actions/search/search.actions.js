@@ -5,6 +5,7 @@ import {
   OPEN_SEARCHPAGE,
   SET_SAVEDINPUT,
   SET_SEARCHPHOTOS,
+  SET_SEARCHVALUE,
   SET_SORTOPTION,
 } from './search.action-types';
 
@@ -36,4 +37,12 @@ export const setSortOption = (sortOption) => ({
   payload: sortOption,
 });
 
-export const likeSearchPhoto = (photoId) => ({ type: LIKE_SEARCHPHOTO, payload: photoId });
+export const likeSearchPhoto = (photoId) => ({
+  type: LIKE_SEARCHPHOTO,
+  payload: photoId,
+});
+
+export const setSearchValue = (searchValue) => ({
+  type: SET_SEARCHVALUE,
+  payload: searchValue,
+});
