@@ -1,6 +1,7 @@
 import {
   ADD_SEARCHPHOTOS,
   CLOSE_SEARCHPAGE,
+  LIKE_SEARCHPHOTO,
   OPEN_SEARCHPAGE,
   SET_SAVEDINPUT,
   SET_SEARCHPHOTOS,
@@ -34,3 +35,5 @@ export const setSortOption = (sortOption) => ({
   type: SET_SORTOPTION,
   payload: sortOption,
 });
+
+export const likeSearchPhoto = (photoId) => ({ type: LIKE_SEARCHPHOTO, payload: photoId });

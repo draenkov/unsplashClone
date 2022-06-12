@@ -81,6 +81,32 @@
   padding-right: 14px;
 }
 
+.inputClear {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  right: 48px;
+}
+
+.inputClear > .v-line {
+  height: 16px;
+}
+
+.inputClear__btn {
+  display: flex;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.inputClear__btn svg {
+  fill: rgb(129, 129, 129);
+  width: 16px;
+}
+
 .search__btn svg,
 .photo__btn svg {
   fill: rgb(129, 129, 129);

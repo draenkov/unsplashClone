@@ -22,7 +22,7 @@ const SearchResult = () => {
         dispatch(setSearchPhotos(searchPhotos));
       }
     );
-  }, [sortOption]);
+  }, [sortOption, savedInput]);
   return (
     <>
       <Header />

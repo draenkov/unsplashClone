@@ -1,6 +1,7 @@
 import {
   ADD_SEARCHPHOTOS,
   CLOSE_SEARCHPAGE,
+  LIKE_SEARCHPHOTO,
   OPEN_SEARCHPAGE,
   SET_SAVEDINPUT,
   SET_SEARCHPHOTOS,
@@ -41,6 +42,19 @@ export const searchReducer = (state = initialState, action = {}) => {
 
     case SET_SORTOPTION:
       return { ...state, sortOption: payload };
+
+    case LIKE_SEARCHPHOTO: {
+      const map = state.searchPhotos;
+      const likedPhoto = map.get(payload);
+
+      if (likedPhoto) {
+        likedPhoto.likedByUser = !likedPhoto.likedByUser;
+      }
+      const array = Array.from(map);
+      const newMap = new Map(array);
+
+      return { ...state, searchPhotos: newMap };
+    }
 
     default:
       return state;

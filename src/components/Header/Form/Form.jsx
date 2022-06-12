@@ -32,8 +32,7 @@ const Form = () => {
 
   useEffect(() => {
     if (debouncedInputValue) {
-      UnsplashService.searchAutoComplete(debouncedInputValue)
-      .then((value) => {
+      UnsplashService.searchAutoComplete(debouncedInputValue).then((value) => {
         setAutoCompleteValue(value);
       });
     }
@@ -47,6 +46,10 @@ const Form = () => {
           type="button"
           onClick={() => {
             dispatch(setSavedInput(inputValue));
+            if (!isSearchPageOpen) {
+              dispatch(openSearchPage());
+            }
+            dispatch(openSearchPage());
             dispatch(openSearchPage());
           }}
         >
@@ -90,14 +93,29 @@ const Form = () => {
             setIsFocusActive(false);
             setIsInputActive(true);
             setInputValue(e.target.value);
+
+            // if (isSearchPageOpen) {
+            //   setInputValue(e.target.value);
+            //   dispatch(setSavedInput(inputValue));
+            // }
           }}
-          value={isSearchPageOpen ? savedInputValue : inputValue}
+          value={
+            isSearchPageOpen && !isInputActive ? savedInputValue : inputValue
+          }
           onKeyDown={(e) => {
-            if (e.keyCode === 13) {
-              dispatch(setSavedInput(inputValue));
+            if (e.keyCode === 13 && !isSearchPageOpen) {
               dispatch(openSearchPage());
+              dispatch(setSavedInput(inputValue));
               navigate('/searchResult');
             }
+            if (e.keyCode === 13 && isSearchPageOpen) {
+              e.preventDefault();
+              dispatch(setSavedInput(inputValue));
+            }
+
+            // if (isSearchPageOpen) {
+            //   dispatch(setSavedInput(inputValue));
+            // }
           }}
         />
 
@@ -108,6 +126,28 @@ const Form = () => {
         />
 
         <SearchTrends isFocusActive={isFocusActive} />
+        <div className={inputValue ? 'inputClear' : 'hidden'}>
+          <button
+            type="button"
+            className="inputClear__btn"
+            onClick={() => {
+              setInputValue('');
+            }}
+          >
+            <svg
+              width="32"
+              height="32"
+              className="FsJPV"
+              viewBox="0 0 32 32"
+              version="1.1"
+              aria-hidden="false"
+            >
+              <path d="M25.33 8.55l-1.88-1.88-7.45 7.45-7.45-7.45-1.88 1.88 7.45 7.45-7.45 7.45 1.88 1.88 7.45-7.45 7.45 7.45 1.88-1.88-7.45-7.45z" />
+            </svg>
+          </button>
+          <div className="v-line" />
+        </div>
+
         <button className="photo__btn" type="button">
           <svg
             width="32"

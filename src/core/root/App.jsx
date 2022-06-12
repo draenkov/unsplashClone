@@ -13,12 +13,14 @@ import { setPhotos, setPOTD } from '../../store/actions/photo/photo.actions';
 import { setWindowWidth } from '../../store/actions/window/window.actions';
 
 import { popupSelector } from '../../store/selectors/popup.selector';
+
 import { windowWidthSelector } from '../../store/selectors/window.selector';
 
 import './App.css';
 
 const App = () => {
   const screenWidth = useSelector(windowWidthSelector);
+
   const executedRef = useRef(false);
 
   const dispatch = useDispatch();

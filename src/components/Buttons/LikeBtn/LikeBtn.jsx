@@ -1,17 +1,25 @@
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+
 // import { UnsplashService } from '../../../api/splash/provider';
 import { likePhoto } from '../../../store/actions/photo/photo.actions';
+import { likeSearchPhoto } from '../../../store/actions/search/search.actions';
+import { searchPageSelector } from '../../../store/selectors/search.selector';
 
 const LikeBtn = ({ photo }) => {
   const dispatch = useDispatch();
+  const isSearchPageOpen = useSelector(searchPageSelector);
 
   return (
     <button
       className={`likeBtn ${photo.likedByUser ? 'liked' : ''}`}
       onClick={(e) => {
         e.stopPropagation();
+        if (isSearchPageOpen) {
+          dispatch(likeSearchPhoto(photo.id));
+        }
         dispatch(likePhoto(photo.id));
+        console.log(photo);
         // TODO: Like API
         // return photo.likedByUser
         //   ? UnsplashService.likePhoto(photo.id)
