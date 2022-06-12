@@ -39,7 +39,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  overflow: hidden;
+  /* overflow: hidden; */
   overflow-x: hidden;
   overflow-y: hidden;
   scroll-behavior: smooth;
@@ -123,5 +123,13 @@
 @media (max-width: 768px) {
   .filter {
     top: 56px;
+  }
+
+  .filter__slider {
+    overflow-x: auto;
+  }
+  .rightArrow,
+  .leftArrow {
+    display: none;
   }
 }
