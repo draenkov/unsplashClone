@@ -11,6 +11,7 @@ import {
 import {
   savedInputSelector,
   searchPageSelector,
+  searchValueSelector,
 } from '../../../store/selectors/search.selector';
 import { windowWidthSelector } from '../../../store/selectors/window.selector';
 
@@ -26,7 +27,7 @@ const Form = () => {
   const dispatch = useDispatch();
   const isSearchPageOpen = useSelector(searchPageSelector);
   const savedInputValue = useSelector(savedInputSelector);
-  const searchValue = useSelector(setSearchValue);
+  const searchValue = useSelector(searchValueSelector);
 
   const debouncedInputValue = useDebounce(searchValue, 1000);
   const navigate = useNavigate();
@@ -91,7 +92,6 @@ const Form = () => {
           onBlur={() => {
             setIsFocusActive(false);
             setIsInputActive(false);
-            console.log('test2');
           }}
           onInput={(e) => {
             setIsFocusActive(false);
@@ -146,7 +146,6 @@ const Form = () => {
             onClick={() => {
               setInputValue('');
               dispatch(setSavedInput(''));
-              console.log('test1');
             }}
           >
             <svg
