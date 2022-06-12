@@ -39,7 +39,7 @@ const useScroll = () => {
 
           .then((result) => dispatch(addSearchPhotos(result)))
           .then(() => setCurrentPage((prevState) => prevState + 1))
-          // .then(console.log(currentPage))
+          .catch((error) => console.log(error, 'Server didn`t send photos'))
           .finally(() => {
             setShouldLoad(() => false);
           });
@@ -47,7 +47,7 @@ const useScroll = () => {
       UnsplashService.getMorePhotos(currentPage)
         .then((result) => dispatch(addPhotos(result)))
         .then(() => setCurrentPage((prevState) => prevState + 1))
-        // .then(console.log(currentPage))
+        .catch((error) => console.log(error, 'Server didn`t send photos'))
         .finally(() => {
           setShouldLoad(() => false);
         });

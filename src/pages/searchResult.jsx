@@ -21,11 +21,11 @@ const SearchResult = () => {
   console.log(searchArray);
 
   useEffect(() => {
-    UnsplashService.getsearchPhotos(searchValue, sortOption).then(
-      (searchPhotos) => {
+    UnsplashService.getsearchPhotos(searchValue, sortOption)
+      .then((searchPhotos) => {
         dispatch(setSearchPhotos(searchPhotos));
-      }
-    );
+      })
+      .catch((error) => console.log(error, 'Server didn`t send photos'));
   }, [sortOption, searchValue]);
   return (
     <>

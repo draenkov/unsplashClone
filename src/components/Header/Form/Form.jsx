@@ -35,9 +35,13 @@ const Form = () => {
 
   useEffect(() => {
     if (debouncedInputValue) {
-      UnsplashService.searchAutoComplete(debouncedInputValue).then((value) => {
-        setAutoCompleteValue(value);
-      });
+      UnsplashService.searchAutoComplete(debouncedInputValue)
+        .then((value) => {
+          setAutoCompleteValue(value);
+        })
+        .catch((error) => {
+          console.log(error, 'Limit of requests is over (100/day)');
+        });
     }
   }, [debouncedInputValue]);
 

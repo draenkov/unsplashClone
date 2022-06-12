@@ -35,13 +35,21 @@ const App = () => {
     window.onresize = () => {
       dispatch(setWindowWidth(window.screen.width));
     };
-    UnsplashService.getStartPhotos().then((result) => {
-      dispatch(setPhotos(result));
-    });
-    UnsplashService.getPhotoOfTheDay().then((result) => {
-      dispatch(setPOTD(result));
-    });
-    console.log(UnsplashService);
+    UnsplashService.getStartPhotos()
+      .then((result) => {
+        dispatch(setPhotos(result));
+      })
+      .catch((error) => console.log(error, 'Server didn`t send start photos'));
+
+    UnsplashService.getPhotoOfTheDay()
+      .then((result) => {
+        dispatch(setPOTD(result));
+      })
+      .catch((error) => {
+        console.log(error, 'Server didn`t send photo of the day');
+      });
+
+    // console.log(UnsplashService);
 
     executedRef.current = true;
   }, []);

@@ -31,7 +31,9 @@ const GalleryModal = ({ photoId }) => {
     ? searchPhotos.get(photoId)
     : photos.get(photoId);
   useEffect(() => {
-    UnsplashService.getStatistics(photo.id).then((result) => setStats(result));
+    UnsplashService.getStatistics(photo.id)
+      .then((result) => setStats(result))
+      .catch((error) => console.log(error, 'Server didn`t send statistics'));
   }, []);
   return (
     <div
