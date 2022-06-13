@@ -11,7 +11,6 @@ import {
 import {
   savedInputSelector,
   searchPageSelector,
-  searchValueSelector,
 } from '../../../store/selectors/search.selector';
 import { windowWidthSelector } from '../../../store/selectors/window.selector';
 
@@ -27,9 +26,8 @@ const Form = () => {
   const dispatch = useDispatch();
   const isSearchPageOpen = useSelector(searchPageSelector);
   const savedInputValue = useSelector(savedInputSelector);
-  const searchValue = useSelector(searchValueSelector);
 
-  const debouncedInputValue = useDebounce(searchValue, 1000);
+  const debouncedInputValue = useDebounce(inputValue, 1000);
   const navigate = useNavigate();
   const screenWidth = useSelector(windowWidthSelector);
 

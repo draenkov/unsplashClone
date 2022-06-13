@@ -19,7 +19,7 @@ const LikeBtn = ({ photo }) => {
           dispatch(likeSearchPhoto(photo.id));
         }
         dispatch(likePhoto(photo.id));
-        console.log(photo);
+
         // TODO: Like API
         // return photo.likedByUser
         //   ? UnsplashService.likePhoto(photo.id)

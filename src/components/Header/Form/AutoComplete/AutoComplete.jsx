@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import {
   openSearchPage,
   setSavedInput,
+  setSearchValue,
 } from '../../../../store/actions/search/search.actions';
 
 const AutoComplete = ({ autoCompleteValue, isInputActive, setInputValue }) => {
@@ -21,7 +22,7 @@ const AutoComplete = ({ autoCompleteValue, isInputActive, setInputValue }) => {
             onClick={(e) => {
               setInputValue(e.target.text);
               dispatch(setSavedInput(e.target.text));
-
+              dispatch(setSearchValue(e.target.text));
               dispatch(openSearchPage());
             }}
             role="button"
