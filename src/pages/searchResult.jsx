@@ -18,7 +18,6 @@ const SearchResult = () => {
   const sortOption = useSelector(sortOptionSelector);
   const dispatch = useDispatch();
   const searchArray = useSelector(searchPhotosSelector);
-  console.log(searchArray);
 
   useEffect(() => {
     UnsplashService.getsearchPhotos(searchValue, sortOption)

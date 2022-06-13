@@ -5,6 +5,10 @@ import { activePhotoSelector } from '../../store/selectors/activePhoto.selector'
 import { photosSelector } from '../../store/selectors/photos.selector';
 
 import { popupSelector } from '../../store/selectors/popup.selector';
+import {
+  searchPageSelector,
+  searchPhotosSelector,
+} from '../../store/selectors/search.selector';
 import '../../style/Portal.css';
 import GalleryModal from './Modals/GalleryModal';
 
@@ -14,6 +18,13 @@ const Portal = () => {
 
   const photoId = useSelector(activePhotoSelector);
   const arrayOfPhotos = Array.from(useSelector(photosSelector).values());
+  const arrayOfSearchPhotos = Array.from(
+    useSelector(searchPhotosSelector).values()
+  );
+  const isSearchPageOpen = useSelector(searchPageSelector);
+
+  console.log(photoId);
+  console.log(arrayOfSearchPhotos);
 
   const nextClickHandler = (currentPhotoId, array) => {
     if (currentPhotoId) {
@@ -76,6 +87,10 @@ const Portal = () => {
             type="button"
             onClick={(e) => {
               e.stopPropagation();
+              if (isSearchPageOpen) {
+                prevClickHandler(photoId, arrayOfSearchPhotos);
+                return;
+              }
               prevClickHandler(photoId, arrayOfPhotos);
             }}
           >
@@ -99,6 +114,10 @@ const Portal = () => {
             type="button"
             onClick={(e) => {
               e.stopPropagation();
+              if (isSearchPageOpen) {
+                nextClickHandler(photoId, arrayOfSearchPhotos);
+                return;
+              }
               nextClickHandler(photoId, arrayOfPhotos);
             }}
           >

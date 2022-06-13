@@ -30,6 +30,7 @@ const GalleryModal = ({ photoId }) => {
   const photo = isSearchPageOpen
     ? searchPhotos.get(photoId)
     : photos.get(photoId);
+
   useEffect(() => {
     UnsplashService.getStatistics(photo.id)
       .then((result) => setStats(result))
