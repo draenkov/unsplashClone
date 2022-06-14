@@ -14,9 +14,7 @@ class SplashProvider {
       `${this.baseUrl}/photos?client_id=${this.accessKey}&page=1&per_page=15`
     )
       .then((response) => response.json())
-
       .then((response) => UnsplashConverter.toPhotos(response))
-
       .then((photos) => UnsplashConverter.toMap(photos));
 
     return startPhotos;
@@ -27,9 +25,9 @@ class SplashProvider {
       `${this.baseUrl}/photos?client_id=${this.accessKey}&page=${page}&per_page=15`
     )
       .then((response) => response.json())
-
       .then((response) => UnsplashConverter.toPhotos(response))
       .then((photos) => UnsplashConverter.toMapBase(photos));
+
     return morePhotos;
   }
 
@@ -38,8 +36,8 @@ class SplashProvider {
       `${this.baseUrl}/photos/random?client_id=${this.accessKey}&orientation=landscape&count=1`
     )
       .then((response) => response.json())
-
       .then((response) => UnsplashConverter.toPhotos(response));
+
     return photoOfTheDay;
   }
 
@@ -48,8 +46,8 @@ class SplashProvider {
       `${this.baseUrl}/photos/${id}/statistics?client_id=${this.accessKey}`
     )
       .then((response) => response.json())
-
       .then((response) => UnsplashConverter.toStatistics(response));
+
     return statistics;
   }
 
@@ -97,7 +95,6 @@ class SplashProvider {
       }
     )
       .then((response) => response.json())
-
       .then(({ access_token, refresh_token }) => {
         this.accessToken = access_token;
         this.refreshToken = refresh_token;
@@ -112,7 +109,6 @@ class SplashProvider {
       },
     })
       .then((response) => response.json())
-
       .then((response) => UnsplashConverter.toUserName(response));
 
     return userName;
@@ -127,11 +123,11 @@ class SplashProvider {
       },
     };
 
-    const autoComplete = fetch()
-    // `https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/spelling/AutoComplete?text=${value}`,
-    // options
+    const autoComplete = fetch(
+      `https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/spelling/AutoComplete?text=${value}`,
+      options
+    )
       .then((response) => response.json())
-
       .then((response) => UnsplashConverter.toShortVersion(response));
 
     return autoComplete;
@@ -142,9 +138,7 @@ class SplashProvider {
       `${this.baseUrl}/search/photos?client_id=${this.accessKey}&query=${input}&page=1&per_page=15&order_by=${sortOption}`
     )
       .then((response) => response.json())
-
       .then((response) => UnsplashConverter.toSearchPhotos(response))
-
       .then((photos) => UnsplashConverter.toMap(photos));
 
     return searchPhotos;
@@ -155,9 +149,7 @@ class SplashProvider {
       `${this.baseUrl}/search/photos?client_id=${this.accessKey}&query=${input}&page=${page}&per_page=15`
     )
       .then((response) => response.json())
-
       .then((response) => UnsplashConverter.toSearchPhotos(response))
-
       .then((photos) => UnsplashConverter.toMapBase(photos));
 
     return morePhotos;

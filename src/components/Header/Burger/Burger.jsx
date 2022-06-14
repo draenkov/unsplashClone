@@ -27,6 +27,9 @@ const Burger = ({
           }
           setIsMenuOpen(!isMenuOpen);
         }}
+        onBlur={() => {
+          setIsMenuOpen(false);
+        }}
         onKeyDown={() => {}}
       >
         <svg

@@ -22,6 +22,9 @@ const UserMenu = ({
 
           setIsUserMenuOpen(!isUserMenuOpen);
         }}
+        onBlur={() => {
+          setIsUserMenuOpen(false);
+        }}
         tabIndex={0}
         onKeyDown={() => {}}
       >
@@ -31,7 +34,14 @@ const UserMenu = ({
         />
       </div>
 
-      <div className={isUserMenuOpen ? 'userMenu' : 'hiddenUserMenu'}>
+      <div
+        className={isUserMenuOpen ? 'userMenu' : 'hiddenUserMenu'}
+        onMouseDown={(e) => {
+          e.preventDefault();
+        }}
+        role="button"
+        tabIndex={0}
+      >
         <div className="userMenu__angle">
           <div className="angle__wrapper" />
           <div className="angle__content" />

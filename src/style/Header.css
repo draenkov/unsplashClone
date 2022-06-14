@@ -248,6 +248,10 @@
   margin-left: 24px;
 }
 
+.userInfo__avatar {
+  cursor: pointer;
+}
+
 .userInfo__avatar img {
   width: 32px;
   border-radius: 50%;

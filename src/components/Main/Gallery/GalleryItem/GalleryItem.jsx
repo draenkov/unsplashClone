@@ -27,7 +27,13 @@ const GalleryItem = ({ photo }) => {
           <AddBtn />
         </div>
         <div className="galleryItem__bottom">
-          <div className="galleryItem__bottom__author">
+          <div
+            className="galleryItem__bottom__author"
+            onClick={(e) => e.stopPropagation()}
+            onKeyDown={() => {}}
+            role="button"
+            tabIndex={0}
+          >
             <img src={photo.authorImg} alt="" />
             <a href="/#">{photo.author}</a>
           </div>

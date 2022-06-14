@@ -48,7 +48,14 @@ const BurgerMenuMedium = ({ isMenuOpen }) => {
   ];
 
   return (
-    <div className="burgerMenu--m">
+    <div
+      className="burgerMenu--m"
+      onMouseDown={(e) => {
+        e.preventDefault();
+      }}
+      role="button"
+      tabIndex={0}
+    >
       <div
         className={
           isMenuOpen ? 'burgerMenu__content--m' : 'hiddenMenuContent--m'

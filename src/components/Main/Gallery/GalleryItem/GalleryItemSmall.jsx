@@ -20,12 +20,24 @@ const GalleryItemSmall = ({ photo }) => {
       role="button"
       tabIndex={0}
     >
-      <div className="galleryItem__bottom__author">
+      <div
+        className="galleryItem__bottom__author"
+        onClick={(e) => e.stopPropagation()}
+        onKeyDown={() => {}}
+        role="button"
+        tabIndex={0}
+      >
         <img src={photo.authorImg} alt="" />
         <a href="/#">{photo.author}</a>
       </div>
       <img className="galleryItem__image" src={photo.urlRegular} alt="" />
-      <div className="galleryItem__bottomm--s">
+      <div
+        className="galleryItem__bottomm--s"
+        onClick={(e) => e.stopPropagation()}
+        onKeyDown={() => {}}
+        role="button"
+        tabIndex={0}
+      >
         <div className="galleryItem__top">
           <LikeBtn photo={photo} />
           <AddBtn />

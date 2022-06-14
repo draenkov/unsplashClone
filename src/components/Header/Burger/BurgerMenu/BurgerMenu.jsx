@@ -42,7 +42,14 @@ const BurgerMenu = ({ isMenuOpen }) => {
   ];
 
   return (
-    <div className="burgerMenu">
+    <div
+      className="burgerMenu"
+      onMouseDown={(e) => {
+        e.preventDefault();
+      }}
+      role="button"
+      tabIndex={0}
+    >
       <div className={isMenuOpen ? 'burgerMenu__content' : 'hiddenMenuContent'}>
         <div className="burgerMenu__angle">
           <div className="angle__wrapper" />

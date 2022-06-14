@@ -23,9 +23,6 @@ const Portal = () => {
   );
   const isSearchPageOpen = useSelector(searchPageSelector);
 
-  console.log(photoId);
-  console.log(arrayOfSearchPhotos);
-
   const nextClickHandler = (currentPhotoId, array) => {
     if (currentPhotoId) {
       const currentIndex = array.findIndex(
