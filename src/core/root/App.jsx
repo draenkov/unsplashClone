@@ -56,9 +56,9 @@ const App = () => {
   return (
     <div className={`App ${isModalOpened ? 'scrollHidden' : ''}`}>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/searchResult" element={<SearchResult />} />
+        <Route path="/unsplashClone" element={<Home />} />
+        <Route path="/unsplashClone/login" element={<Login />} />
+        <Route path="/unsplashClone/searchResult" element={<SearchResult />} />
       </Routes>
       {screenWidth > 768 ? <Portal /> : <PortalSmall />}
     </div>

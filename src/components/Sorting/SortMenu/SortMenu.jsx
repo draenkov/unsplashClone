@@ -15,7 +15,7 @@ const SortMenu = ({ isMenuActive, setActiveSortOption }) => {
           {sortOptions.map((option) => (
             <li key={option}>
               <Link
-                to="/searchResult"
+                to="/unsplashClone/searchResult"
                 onMouseDown={(e) => {
                   e.preventDefault();
                 }}

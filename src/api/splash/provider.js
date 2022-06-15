@@ -75,7 +75,7 @@ class SplashProvider {
 
   login() {
     return window.location.replace(
-      `https://unsplash.com/oauth/authorize?client_id=${process.env.REACT_APP_ACCESS_KEY}&redirect_uri=http://localhost:3000/login&response_type=code&scope=public+read_user`
+      `https://unsplash.com/oauth/authorize?client_id=${process.env.REACT_APP_ACCESS_KEY}&redirect_uri=http://localhost:3000/unsplashClone/login&response_type=code&scope=public+read_user`
     );
   }
 
@@ -84,7 +84,7 @@ class SplashProvider {
     //   return this.accessToken;
     // }
     return fetch(
-      `https://unsplash.com/oauth/token?grant_type=authorization_code&code=${code}&redirect_uri=http://localhost:3000/login&client_id=${process.env.REACT_APP_ACCESS_KEY}&client_secret=${process.env.REACT_APP_SECRET_KEY}`,
+      `https://unsplash.com/oauth/token?grant_type=authorization_code&code=${code}&redirect_uri=http://localhost:3000/unsplashClone/login&client_id=${process.env.REACT_APP_ACCESS_KEY}&client_secret=${process.env.REACT_APP_SECRET_KEY}`,
       {
         method: 'POST',
 

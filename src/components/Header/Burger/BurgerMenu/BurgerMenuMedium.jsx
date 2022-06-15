@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import LoginBtn from '../../AuthBtns/Btns/LoginBtn';
 import SubmitBtn from '../../SubmitBtn/SubmitBtn';
 
@@ -77,7 +78,7 @@ const BurgerMenuMedium = ({ isMenuOpen }) => {
         <div className="burgerMenu__content__signin--m">
           <p>New to Unsplash?&nbsp;</p>
 
-          <a href="/#">Sign up for free</a>
+          <Link to="/unsplashClone">Sign up for free</Link>
         </div>
       </div>
     </div>

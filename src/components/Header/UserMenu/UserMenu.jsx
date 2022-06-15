@@ -1,4 +1,9 @@
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+
+import { Link } from 'react-router-dom';
+import { setAccessToken } from '../../../store/actions/photo/auth.actions';
+
 import UserMenuItem from './UserMenuItem/UserMenuItem';
 
 const UserMenu = ({
@@ -8,6 +13,7 @@ const UserMenu = ({
   setIsUserMenuOpen,
 }) => {
   const userMenuItems = ['View profile', 'Stats', 'Account settings'];
+  const dispatch = useDispatch();
 
   return (
     <div className="userInfo">
@@ -54,9 +60,15 @@ const UserMenu = ({
           </ul>
 
           <hr className="g-line" />
-          <a href="/#" className="userMenu__logout">
+          <Link
+            to="/unsplashClone"
+            className="userMenu__logout"
+            onClick={() => {
+              dispatch(setAccessToken(null));
+            }}
+          >
             Logout
-          </a>
+          </Link>
         </div>
       </div>
     </div>

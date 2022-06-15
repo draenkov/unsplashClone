@@ -1,4 +1,5 @@
 // POTD - Photo Of The Day
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { potdSelector } from '../../../store/selectors/potd.selector';
 import '../../../style/Potd.css';
@@ -18,7 +19,7 @@ const Potd = () => {
         <h1>Unsplash</h1>
         <p>
           The internet&apos;s source of&nbsp;
-          <a href="/#">freely-usable images.</a>
+          <Link to="/unsplashClone">freely-usable images.</Link>
         </p>
         <p>Powered by creators everywhere</p>
         <Form />
@@ -26,11 +27,13 @@ const Potd = () => {
       <div className="potd__footer">
         <p>
           Photo of the Day by
-          <a href="/#">{` ${photoOfTheDay.map((photo) => photo.author)}`}</a>
+          <Link to="/unsplashClone">
+            {`${photoOfTheDay.map((photo) => photo.author)}`}
+          </Link>
         </p>
         <p className="t-a">
           Read more about the
-          <a href="/#"> Unsplash License</a>
+          <Link to="/unsplashClone"> Unsplash License</Link>
         </p>
       </div>
     </section>

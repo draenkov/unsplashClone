@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Icon from '../../../Icon/Icon';
 
 const BurgerSection = ({ section }) => (
@@ -10,7 +11,7 @@ const BurgerSection = ({ section }) => (
     <ul className="burgerSection__links">
       {section.links.map((link) => (
         <li className="burgerSection__link" key={link}>
-          <a href="/#">{link}</a>
+          <Link to="/unsplashClone">{link}</Link>
         </li>
       ))}
     </ul>

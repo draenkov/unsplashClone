@@ -30,7 +30,7 @@ const AutoComplete = ({ autoCompleteValue, isInputActive, setInputValue }) => {
             onKeyDown={() => {}}
             key={value}
           >
-            <Link to="/searchResult">{value}</Link>
+            <Link to="/unsplashClone/searchResult">{value}</Link>
           </div>
         ))}
       </div>

@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+
 import { saveAs } from 'file-saver';
 
 import { useEffect, useState } from 'react';
@@ -53,7 +55,7 @@ const GalleryModal = ({ photoId }) => {
 
             <div className="authorInfo__name">
               <p>{photo.author}</p>
-              <a href="/#">{`@${photo.authorPage}`}</a>
+              <Link to="/unsplashClone">{`@${photo.authorPage}`}</Link>
             </div>
           </div>
         </div>

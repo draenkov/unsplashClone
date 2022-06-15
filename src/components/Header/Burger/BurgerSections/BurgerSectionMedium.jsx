@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Icon from '../../../Icon/Icon';
 
 const BurgerSectionMedium = ({ section }) => (
@@ -17,7 +18,7 @@ const BurgerSectionMedium = ({ section }) => (
       <ul>
         {section.links.map((link) => (
           <li key={link}>
-            <a href="/#">{link}</a>
+            <Link to="/unsplashClone">{link}</Link>
           </li>
         ))}
       </ul>

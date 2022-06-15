@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const UserMenuItem = ({ item }) => (
   <li className="userMenu__item">
-    <a href="/#">{item}</a>
+    <Link to="/unsplashClone">{item}</Link>
   </li>
 );
 

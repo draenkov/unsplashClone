@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const FastMenuItem = ({ buttonTitle }) => (
   <li className="fastMenuItem">
-    <a href="/#" className="fastMenu__link">
+    <Link to="/unsplashClone" className="fastMenu__link">
       {buttonTitle}
-    </a>
+    </Link>
   </li>
 );
 

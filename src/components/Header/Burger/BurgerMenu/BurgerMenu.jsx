@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import BurgerSection from '../BurgerSections/BurgerSection';
 
 const BurgerMenu = ({ isMenuOpen }) => {
@@ -65,7 +66,7 @@ const BurgerMenu = ({ isMenuOpen }) => {
           <ul className="footer__btns">
             {footerBtns.map((btn) => (
               <li key={btn}>
-                <a href="/#">{btn}</a>
+                <Link to="/unsplashClone">{btn}</Link>
               </li>
             ))}
           </ul>

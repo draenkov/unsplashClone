@@ -59,7 +59,7 @@ const Form = () => {
             dispatch(openSearchPage());
           }}
         >
-          <Link to="/searchResult">
+          <Link to="/unsplashClone/searchResult">
             <svg
               width="32"
               height="32"
@@ -115,7 +115,7 @@ const Form = () => {
               dispatch(setSearchValue(inputValue));
               setIsFocusActive(false);
               setIsInputActive(false);
-              navigate('/searchResult');
+              navigate('/unsplashClone/searchResult');
             }
             if (e.keyCode === 13 && isSearchPageOpen) {
               e.preventDefault();

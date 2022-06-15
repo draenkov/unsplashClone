@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setActivePhoto } from '../../../../store/actions/photo/photo.actions';
 import { open } from '../../../../store/actions/photo/popup.actions';
@@ -35,7 +36,7 @@ const GalleryItem = ({ photo }) => {
             tabIndex={0}
           >
             <img src={photo.authorImg} alt="" />
-            <a href="/#">{photo.author}</a>
+            <Link to="/unsplashClone">{photo.author}</Link>
           </div>
           <DownloadBtn downloadLink={photo.urlFull} />
         </div>
